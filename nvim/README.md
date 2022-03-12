@@ -1,7 +1,7 @@
 
 # This is my config neovim
 
-### Need dowload : 
+### Tool need  
 + npm 
 + nodejs
 + ccls
