@@ -5,7 +5,7 @@ for [@lenguyenthanh](https://twitter.com/lenguyenthanh)
 
 ## Install
 
-=
+
 
 ```
 curl -sSL 
