@@ -1,8 +1,12 @@
 
 # This is my config neovim
 
-### Tool need  
+### Tool   
 + npm 
 + nodejs
-+ ccls
++ ccls for c/cpp 
+
+
+
+
 
