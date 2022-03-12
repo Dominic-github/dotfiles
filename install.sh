@@ -1,0 +1,11 @@
+#!/bin/sh
+
+echo "Downloading dotfiles"
+curl -LJO 
+echo "Unziping dotfiles"
+unzip -a dotfiles-master.zip
+mv -f dotfiles-master .dotfiles
+rm dotfiles-master.zip
+cd .dotfiles
+chmod +x bootstrap.sh
+./bootstrap.sh
