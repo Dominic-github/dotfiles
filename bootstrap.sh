@@ -5,7 +5,7 @@ echo "Setting up your Pc"
 
 # Check for Homebrew and install if we don't have it
 if test ! $(which yay); then
-   pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+   sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
 fi
 
 
@@ -23,10 +23,12 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 # Install 
-echo "Installiing ..."
+echo "Installiing brave-nightly..."
+yay -S brave-nightly
 
 
-echo "Installing ..."
+echo "Installing lunarvim..."
+
 
 
 
@@ -40,7 +42,7 @@ ln -s $HOME/.dotfiles/zshrc $HOME/.zshrc
 # Symlink neovim
 rm -rf $HOME/.config/nvim/init.vim
 mkdir -p .config/nvim
-ln -s $HOME/.dotfiles/nvim $HOME/.config/nvim/
+ln -s $HOME/.dotfiles/.config/nvim $HOME/.config/nvim/
 
 
 

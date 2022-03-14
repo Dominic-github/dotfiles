@@ -13,5 +13,5 @@ curl -sSL
 - Git
 - Zsh
 - Oh-My-Zsh
-- brave
+- brave-nightly
 
