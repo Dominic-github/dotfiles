@@ -2,10 +2,11 @@
 
 echo "Downloading dotfiles"
 curl -LJO 
-echo "Unziping dotfiles"
+echo "Unziping dotfiles and start..."
 unzip -a dotfiles-master.zip
 mv -f dotfiles-master .dotfiles
 rm dotfiles-master.zip
-cd .dotfiles
-chmod +x bootstrap.sh
-./bootstrap.sh
+
+cd $HOME/.dotfiles
+chmod +x pacman.sh
+./pacman.sh

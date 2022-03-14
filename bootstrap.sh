@@ -3,20 +3,9 @@
 echo "Setting up your Pc"
 
 
-# Check for Homebrew and install if we don't have it
-if test ! $(which yay); then
-   sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
-fi
-
-
-
 # Make ZSH the default shell environment
 chsh -s $(which zsh)
 
-# Install Oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-cp $HOME/.dotfiles/themes/solus.zsh-themes $HOME/.oh-my-zsh/themes/
 
 # Install VimPlug for neovim
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
@@ -28,28 +17,32 @@ yay -S brave-nightly
 
 
 echo "Installing lunarvim..."
+LV_BRANCH=rolling bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/rolling/utils/installer/install.sh)
+
+echo "Installing Starship..."
+cargo install starship --locked
 
 
 
-
-
-echo "Setting up symlink..."
+echo "Setting up config..."
 
 # Symlink zshrc
 rm -rf $HOME/.zshrc
-ln -s $HOME/.dotfiles/zshrc $HOME/.zshrc
+cp -a $HOME/.dotfiles/zsh/.zshrc $HOME/.zshrc
 
 # Symlink neovim
-rm -rf $HOME/.config/nvim/init.vim
-mkdir -p .config/nvim
-ln -s $HOME/.dotfiles/.config/nvim $HOME/.config/nvim/
+rm -rf $HOME/.config/nvim/
+cp -a $HOME/.dotfiles/.config/nvim $HOME/.config/nvim/
 
+# Symlink lunarvim
+rm -rf $HOME/.config/lvim/
+cp -a $HOME/.dotfiles/.config/lvim $HOME/.config/lvim/
 
+# Symlink starship
+rm -rf $HOME/.config/starship.toml
+cp -a $HOME/.dotfiles/.config/starship.toml $HOME/.config/starship.toml
 
+echo "Install packages..."
 
-# Default Mac settings
-
-chmod +x ./macos/setup.sh
-./macos/setup.sh
 
 echo "Done. Enjoy!"
