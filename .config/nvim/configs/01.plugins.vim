@@ -55,6 +55,7 @@ Plug 'ap/vim-css-color' 					"Css Color preview
 
 "Source code version control 
 Plug 'tpope/vim-fugitive' 						" Git
+Plug 'kdheepak/lazygit.vim'
 
 
 
