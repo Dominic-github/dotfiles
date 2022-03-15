@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DIALOG_RESULT=$(echo -e 'exit i3\nhibernate\nreboot\nshutdown' | rofi -dmenu -i -p "[ Computer ] : "")
+DIALOG_RESULT=$(echo -e 'exit i3\nhibernate\nreboot\nshutdown' | rofi -dmenu -i -p )
 
 echo "This result is : $DIALOG_RESULT"
 sleep 1;
