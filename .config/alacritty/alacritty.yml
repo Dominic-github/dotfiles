@@ -5,7 +5,7 @@ window:
   class:
     instance: Alacritty
     general: Alacritty
-  opacity: 0.8
+  opacity: 0.7
 
 scrolling:
   history: 10000
@@ -14,16 +14,16 @@ scrolling:
 
 font:
   normal:
-    family: JetBrains Mono Nerd Font
+    family: Roboto Mono Nerd Font
     style:  Medium
   bold:
-    family: JetBrains Mono Nerd Font
+    family: Roboto Mono Nerd Font
     style:  Bold
   italic:
-    family: JetBrains Mono Nerd Font
+    family: Roboto Mono Nerd Font
     style:  MediumItalic
   bold_italic:
-    family: JetBrains Mono Nerd Font
+    family: Roboto Mono Nerd Font
     style: BoldItalic
   size: 7
 draw_bold_text_with_bright_colors: true
@@ -55,7 +55,7 @@ selection:
   save_to_clipboard: false
 
 shell:
-  program: /usr/bin/zsh
+  program: /usr/bin/fish
 
 key_bindings:
   - { key: Return, mods: Super|Shift, action: SpawnNewInstance }

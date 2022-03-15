@@ -16,7 +16,7 @@ curl -sSL
 - [lvim](https://www.lunarvim.org/)
 - [NeoVim](https://neovim.io/)
 - [Git](https://git-scm.com/)
-- [Zsh](https://www.zsh.org/)
+- [Fish](https://fishshell.com/)
 - [Starship](https://starship.rs/)
 - [brave-nightly](https://brave.com/download-nightly/)
 

@@ -1,5 +1,9 @@
 # git
 alias g='git'
+alias ga='git add'
+alias gc='git clone'
+alias gcmm='git commit -m'
+
 
 # Vim
 alias v='nvim'
