@@ -7,7 +7,6 @@ alias gh='git push'
 alias gp='git pull'
 
 # ls
-alias l='ls'
 alias ll='ls -l'
 alias la='ls -a'
 
