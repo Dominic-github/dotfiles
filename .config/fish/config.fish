@@ -6,7 +6,6 @@ set -gx TERMINAL="alacritty"
 set -gx BROWSER="brave-nightly"
 
 
-
 # Path to your Starship custom
 starship init fish | source
 set -gx STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
