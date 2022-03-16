@@ -189,6 +189,7 @@ lvim.plugins = {
   }
 }
 
+
 -- Custom functions
 
 function ToggleTheme()
