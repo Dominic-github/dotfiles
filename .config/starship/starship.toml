@@ -1,5 +1,6 @@
 add_newline = false
 
+
 format = """
 [┌─────────](bold green)$username$hostname
 [│](bold green)$directory$git_branch$git_status
