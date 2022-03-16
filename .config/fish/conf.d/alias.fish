@@ -4,7 +4,7 @@ alias ga='git add'
 alias gc='git clone'
 alias gcmm='git commit -m'
 alias gh='git push'
-alias gp='git pull'
+alias gl='git pull'
 
 # ls
 alias ll='ls -l'
@@ -15,6 +15,7 @@ alias la='ls -a'
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
+alias nv='nvim'
 
 #lunarvim
 alias lv='~/.local/bin/lua'

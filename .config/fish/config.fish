@@ -1,15 +1,15 @@
 # You may need to manually set your language environment
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-export EDITOR="nvim"
-export TERMINAL="alacritty"
-export BROWSER="brave-nightly"
+set -gx LC_ALL=en_US.UTF-8
+set -gx LANG=en_US.UTF-8
+set -gx EDITOR="nvim"
+set -gx TERMINAL="alacritty"
+set -gx BROWSER="brave-nightly"
 
 
 
 # Path to your Starship custom
 starship init fish | source
-export STARSHIP_CONFIG=$HOME/.config/starship/starship.yaml
+set -gx STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 
 
 # Active neofetch
