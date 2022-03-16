@@ -18,3 +18,4 @@ elif [ "$DIALOG_RESULT" = "shutdown" ];
 then
     exec shutdown -h now
 fi
+
