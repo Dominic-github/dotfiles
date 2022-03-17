@@ -19,4 +19,5 @@ curl -sSL
 - [Starship](https://starship.rs/)
 - [brave-nightly](https://brave.com/download-nightly/)
 - [Lightdm Aether](https://github.com/NoiSek/Aether) 
+- [kitty](https://wiki.archlinux.org/title/Kitty)
 
