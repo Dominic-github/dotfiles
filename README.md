@@ -3,7 +3,6 @@
 ## Install
 
 
-
 ```
 curl -sSL 
 ```
@@ -19,4 +18,5 @@ curl -sSL
 - [Fish](https://fishshell.com/)
 - [Starship](https://starship.rs/)
 - [brave-nightly](https://brave.com/download-nightly/)
+- [Lightdm Aether](https://github.com/NoiSek/Aether) 
 
