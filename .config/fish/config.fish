@@ -6,6 +6,11 @@
     set -gx TERMINAL='kitty"
     set -gx BROWSER="brave-nightly"
     set fish_greeting 
+
+    #vietnamese ibusbamboo 
+    set -gx GTK_IM_MODULE=ibus
+    set -gx XMODIFIERS=@im=ibus
+    set -gx QT_IM_MODULE=ibus
     
 
 
@@ -25,7 +30,7 @@
     alias g='git'
     alias ga='git add'
     alias gc='git clone'
-    alias gcmm='git commit -m'
+    alias gcm='git commit -m'
     alias gh='git push'
     alias gl='git pull'
 

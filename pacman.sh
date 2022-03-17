@@ -2,6 +2,7 @@ echo "Install packages..."
 
 #directory containing git clone
 mkdir ~/git-clone
+mkdir -p ~/Pictures/Screenshots
 
 #Pacman for windows
 sudo pacman -S i3
@@ -14,7 +15,12 @@ sudo pacman -S neofetch
 sudo pacman -S w3m
 sudo pacman -S imagemagick
 # sudo pacman -S alacritty
-sudo pacman -S kitty
+sudo pacman -S kitty     # It's same alacritty but you can set image on neofetch and icon
+# for backlight
+sudo pacman -S brightnessctl
+# for print screenshot
+sudo pacman -S xclip
+sudo pacman -S 
 
 #for neovim
 sudo pacman -S neovim
