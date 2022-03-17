@@ -3,13 +3,18 @@ echo "Install packages..."
 #directory containing git clone
 mkdir ~/git-clone
 
-#Pacman 
+#Pacman for windows
+sudo pacman -S i3
 sudo pacman -S git
 sudo pacman -S fish 
-sudo pacman -S alacritty
 sudo pacman -S picom
 sudo pacman -S rofi
 sudo pacman -S feh
+sudo pacman -S neofetch
+sudo pacman -S w3m
+sudo pacman -S imagemagick
+# sudo pacman -S alacritty
+sudo pacman -S kitty
 
 #for neovim
 sudo pacman -S neovim
@@ -28,12 +33,14 @@ sudo pacman -S lazygit
 if test ! $(which yay); then
    sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git ~/git-clone/yay && cd ~/git-clone/yay && makepkg -si && cd ~
 fi
-
+yay -S i3lock-color
 yay -S polybar
 yay -S brave-nightly
+yay -S betterlockscreen
+yay -S lightdm-webkit-theme-aether
 
-
-
+sudo systemctl enable betterlockscreen@USER 
+sudo systemctl enable lightdm.service
 
 
 cd $HOME/.dotfiles
