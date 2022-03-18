@@ -30,10 +30,14 @@
     alias gcm='git commit -m'
     alias gh='git push'
     alias gl='git pull'
+    alias lg='lazygit'
 
     # ls
-    alias ll='ls -l'
-    alias la='ls -a'
+    alias "ls -a"='logo-ls -A'
+    alias ls='logo-ls'
+    alias ll='logo-ls -l'
+    alias la='logo-ls -A'
+    alias "ls -l"="logo-ls -l"
 
     #clear
     alias cl='clear'
@@ -60,4 +64,10 @@
 
 # Active
     # Neofetch
-    neofetch --source ~/.dotfiles/images/pixiv/ | lolcat
+    neofetch --source ~/.dotfiles/image/pixiv/manox_x.jpg | lolcat
+
+    # betterlockscreen
+    betterlockscreen -u ~/.dotfiles/image/pixiv/mano2.jpg 
+
+
+source ~/.local/share/icons-in-terminal/icons.fish

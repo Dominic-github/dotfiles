@@ -24,32 +24,54 @@ cargo install starship --locked
 
 echo "Setting up config..."
 
-# Symlink zshrc
+# Symlink fish
 rm -rf $HOME/.config/fish
-cp -a $HOME/.dotfiles/.config/fish $HOME/.config/fish
+cp -a $HOME/.dotfiles/.config/fish $HOME/.config
 
 # Symlink neovim
 rm -rf $HOME/.config/nvim/
-cp -a $HOME/.dotfiles/.config/nvim $HOME/.config/nvim/
+cp -a $HOME/.dotfiles/.config/nvim $HOME/.config
 
 # Symlink lunarvim
 rm -rf $HOME/.config/lvim/
-cp -a $HOME/.dotfiles/.config/lvim $HOME/.config/lvim/
+cp -a $HOME/.dotfiles/.config/lvim $HOME/.config
 
 # Symlink starship
 rm -rf $HOME/.config/starship.toml
-cp -a $HOME/.dotfiles/.config/starship $HOME/.config/starship
+cp -a $HOME/.dotfiles/.config/starship $HOME/.config
 
 # Symlink alacritty
-rm -rf $HOME/.config/alacritty
-cp -a $HOME/.config/alacritty $HOME/.config/alacritty
+rm -rf $HOME/.config/kitty
+cp -a $HOME/.dotfiles/.config/kitty $HOME/.config
 
 # Symlink font
 sudo mkdir -p /usr/local/share/fonts/RobotoMono
-sudo cp -a $HOME/fonts/RobotoMono $HOME /usr/local/share/fonts/RobotoMono
+sudo cp -a $HOME/fonts/RobotoMono /usr/local/share/fonts/
+sudo cp -a $HOME/fonts/FiraCode /usr/local/share/fonts/
 sudo fc-cache -f
 
+# Symlink polybar 
+rm -rf $HOME/.config/polybar
+cp -a $HOME/.dotfiles/.config/polybar $HOME/.config
 
+# Symlink rofi
+rm -rf $HOME/.config/rofi
+cp-a $HOME/.dotfiles/.config/rofi $HOME/.config
+
+# Symlink i3-gaps
+rm -rf $HOME/.config/i3
+cp -a $HOME/.dotfiles/.config/i3 $HOME/.config
+
+# Symlink picom
+rm -rf $HOME/.config/picom
+cp -a $HOME/.dotfiles/.config/picom $HOME/.config
+
+# Symlink neofetch
+rm -rf $HOME/.config/neofetch
+cp -a $HOME/.dotfiles/.config/neofetch $HOME/.config
+
+# Add tools 
+cp -a $HOME/.config/tools $HOME/.config
 
 
 echo "Done. Enjoy!"
