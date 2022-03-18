@@ -44,6 +44,7 @@ yay -S polybar
 yay -S brave-nightly
 yay -S betterlockscreen
 yay -S lightdm-webkit-theme-aether
+yay -S lolcat
 
 sudo systemctl enable betterlockscreen@USER 
 sudo systemctl enable lightdm.service
