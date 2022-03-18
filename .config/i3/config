@@ -135,7 +135,7 @@
     bindsym $mod+n exec brave-nightly
 
     # Betterlockscreen
-    bindsym $mod+shift+m exec better-lockscreen -l dim blur
+    bindsym $mod+shift+m exec better-lockscreen -l dimblur
 
 
 #=========================================================================

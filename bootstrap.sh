@@ -13,14 +13,11 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 
 # Install 
 
-
 echo "Installing lunarvim..."
 LV_BRANCH=rolling bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/rolling/utils/installer/install.sh)
 
 echo "Installing Starship..."
 cargo install starship --locked
-
-
 
 echo "Setting up config..."
 
@@ -72,6 +69,12 @@ cp -a $HOME/.dotfiles/.config/neofetch $HOME/.config
 
 # Add tools 
 cp -a $HOME/.config/tools $HOME/.config
+
+# Add ranger with icon
+ranger --copy-config=all
+git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
+echo "default_linemode devicons" >> $HOME/.config/ranger/rc.conf
+echo "set preview_images true" >> $HOME/.config/ranger/rc.conf
 
 
 echo "Done. Enjoy!"
