@@ -50,6 +50,7 @@ sudo fc-cache -f
 # Symlink polybar 
 rm -rf $HOME/.config/polybar
 cp -a $HOME/.dotfiles/.config/polybar $HOME/.config
+chmod +x $HOME/.config/polybar/launch.sh
 
 # Symlink rofi
 rm -rf $HOME/.config/rofi

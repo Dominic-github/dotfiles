@@ -32,6 +32,9 @@ sudo pacman -S w3m
 echo "Install imagemagick"
 sudo pacman -S imagemagick
 
+echo "Install alsa-utils - amixer..."
+sudo pacman -S alsa-utils
+
 # sudo pacman -S alacritty
 
 echo "Install kitty"
