@@ -69,5 +69,5 @@
     # betterlockscreen
     betterlockscreen -u ~/.dotfiles/image/pixiv/mano2.jpg 
 
+  
 
-source ~/.local/share/icons-in-terminal/icons.fish

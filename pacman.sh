@@ -35,6 +35,8 @@ sudo pacman -S imagemagick
 echo "Install alsa-utils - amixer..."
 sudo pacman -S alsa-utils
 
+echo "Install nemo - file manager..."
+sudo pacman -S nemo
 # sudo pacman -S alacritty
 
 echo "Install kitty"
