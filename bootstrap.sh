@@ -71,6 +71,9 @@ cp -a $HOME/.dotfiles/.config/neofetch $HOME/.config
 # Add tools 
 cp -a $HOME/.config/tools $HOME/.config
 
+       #tool - Battery
+       sudo cp $HOME/dotfiles/.config/tools/battery/95-battery.rules /etc/udev/rules.d/
+
 # Add ranger with icon
 ranger --copy-config=all
 git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
