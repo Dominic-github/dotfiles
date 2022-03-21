@@ -1,4 +1,4 @@
-#!/bin/sh
+
 
 echo "Setting up your Pc"
 
