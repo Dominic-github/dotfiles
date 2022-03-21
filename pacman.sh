@@ -159,7 +159,7 @@ echo "
         Install python3-dev...
 ====================================
 "
-sudo pacman -S python3-dev
+sudo pacman -S python3
 
 echo "
 ====================================
@@ -168,6 +168,12 @@ echo "
 "
 sudo pacman -S lazygit
 
+echo "
+====================================
+          Install polybar...
+====================================
+"
+sudo pacman -S polybar
 
 
 #yay 
@@ -183,12 +189,6 @@ echo "
 "
 yay -S i3lock-color
 
-echo "
-====================================
-          Install polybar...
-====================================
-"
-yay -S polybar
 
 echo "
 ====================================
