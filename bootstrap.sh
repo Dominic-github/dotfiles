@@ -41,10 +41,6 @@ cp -a $HOME/.dotfiles/.config/fish $HOME/.config
 rm -rf $HOME/.config/nvim/
 cp -a $HOME/.dotfiles/.config/nvim $HOME/.config
 
-# Symlink lunarvim
-rm -rf $HOME/.config/lvim/
-cp -a $HOME/.dotfiles/.config/lvim $HOME/.config
-
 # Symlink starship
 rm -rf $HOME/.config/starship.toml
 cp -a $HOME/.dotfiles/.config/starship $HOME/.config
