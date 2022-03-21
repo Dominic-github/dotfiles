@@ -240,6 +240,4 @@ echo "
 sudo systemctl enable lightdm.service
 
 
-
-
 bash ~/.dotfiles/bootstrap.sh
