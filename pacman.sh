@@ -189,7 +189,6 @@ echo "
 "
 yay -S i3lock-color
 
-
 echo "
 ====================================
        Install brave-nightly...
