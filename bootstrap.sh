@@ -13,13 +13,25 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 
 # Install 
 
-echo "Installing lunarvim..."
+echo "
+=================================
+       Installing lunarvim...
+=================================
+"
 LV_BRANCH=rolling bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/rolling/utils/installer/install.sh)
 
-echo "Installing Starship..."
+echo "
+===============================
+     Installing Starship...
+===============================
+"
 cargo install starship --locked
 
-echo "Setting up config..."
+echo "
+===============================
+       Setting up config...
+===============================
+"
 
 # Symlink fish
 rm -rf $HOME/.config/fish
@@ -71,8 +83,6 @@ cp -a $HOME/.dotfiles/.config/neofetch $HOME/.config
 # Add tools 
 cp -a $HOME/.config/tools $HOME/.config
 
-       #tool - Battery
-       sudo cp $HOME/dotfiles/.config/tools/battery/95-battery.rules /etc/udev/rules.d/
 
 # Add ranger with icon
 ranger --copy-config=all
