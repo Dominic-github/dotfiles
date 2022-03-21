@@ -7,7 +7,7 @@
 git clone https://github.com/Freu1a/dotfiles ~/.dotfiles
 bash ~/.dotfiles/install.sh
 ```
-##### If you get an error "could not resolve host github.com" you need
+##### If you get an error "could not resolve host github.com" you can try that
 [Source](https://stackoverflow.com/questions/20370294/git-could-not-resolve-host-github-com-error-while-cloning-remote-repository-in)
 ```
 git config --global --unset http.proxy
