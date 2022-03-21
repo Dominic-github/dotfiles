@@ -105,10 +105,11 @@ sudo pacman -S brightnessctl
 # for print screenshot
 echo "
 ====================================
-           Install xclip...
+           Install xclip,maim...
 ====================================
 "
 sudo pacman -S xclip
+sudo pacman -S maim
 
 echo "
 ====================================
@@ -175,68 +176,14 @@ echo "
 "
 sudo pacman -S polybar
 
+#fonts
 
-#yay 
+sudo pacman -S noto-fonts-cjk 
+sudo pacman -S noto-fonts-emoji 
+sudo pacman -S noto-fonts
 
-    # Check for yay and install if we don't have it
-if test ! $(which yay); then
-   sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git ~/git-clone/yay && cd ~/git-clone/yay && makepkg -si && cd ~
-fi
-echo "
-====================================
-       Install i3lock-color...
-====================================
-"
-yay -S i3lock-color
-
-echo "
-====================================
-       Install brave-nightly...
-====================================
-"
-yay -S brave-nightly
-
-echo "
-====================================
-     Install betterlockscreen...
-====================================
-"
-yay -S betterlockscreen
-
-echo "
-====================================
- Install lightdm-webkit-theme-aether
-====================================
-..."
-yay -S lightdm-webkit-theme-aether
-
-echo "
-====================================
-          Install lolcat...
-====================================
-"
-yay -S lolcat 
-
-echo "
-====================================
-          Install logo-ls...
-====================================
-"
-yay -S logo-ls
-
-echo "
-====================================
-  System enable betterlockscreen...
-====================================
-"
-sudo systemctl enable betterlockscreen@USER
-
-echo "
-====================================
-        System enable lightdm
-====================================
-"
-sudo systemctl enable lightdm.service
+#audio
+sudo pacman -S pulseaudio
 
 
-bash ~/.dotfiles/bootstrap.sh
+

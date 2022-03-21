@@ -13,19 +13,19 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 
 # Install 
 
-echo "
-=================================
-       Installing lunarvim...
-=================================
-"
-LV_BRANCH=rolling bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/rolling/utils/installer/install.sh)
+# echo "
+# =================================
+#        Installing lunarvim...
+# =================================
+# "
+# LV_BRANCH=rolling bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/rolling/utils/installer/install.sh)
 
 echo "
 ===============================
      Installing Starship...
 ===============================
 "
-cargo install starship --locked
+yay -S starship
 
 echo "
 ===============================

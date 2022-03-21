@@ -120,6 +120,7 @@ element-text {
 }
 element selected.normal {
     background-color: @lightgreen;
+	color: #333333;
 }
 element normal active {
     foreground: @lightblue;

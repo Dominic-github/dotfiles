@@ -45,7 +45,7 @@ Plug 'jackguo380/vim-lsp-cxx-highlight'  	"C++ syntax
 
 
 "Debugging
-Plug 'puremourning/vimspector' 				"vimspector
+" Plug 'puremourning/vimspector' 				"vimspector
 
 "Some extension for developer
 Plug 'preservim/tagbar' 					"Tagbar
