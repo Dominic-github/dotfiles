@@ -55,8 +55,8 @@ cp -a $HOME/.dotfiles/.config/kitty $HOME/.config
 
 # Symlink font
 sudo mkdir -p /usr/local/share/fonts/RobotoMono
-sudo cp -a $HOME/fonts/RobotoMono /usr/local/share/fonts/
-sudo cp -a $HOME/fonts/FiraCode /usr/local/share/fonts/
+sudo cp -a $HOME/.dotfiles/fonts/RobotoMono /usr/local/share/fonts/
+sudo cp -a $HOME/.dotfiles/fonts/FiraCode /usr/local/share/fonts/
 sudo fc-cache -f
 
 # Symlink polybar 
@@ -91,4 +91,8 @@ echo "default_linemode devicons" >> $HOME/.config/ranger/rc.conf
 echo "set preview_images true" >> $HOME/.config/ranger/rc.conf
 
 
-echo "Done. Enjoy!"
+echo "
+===============================
+         DONE. Enjoy!
+===============================
+"
