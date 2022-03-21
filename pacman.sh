@@ -112,8 +112,4 @@ echo "System enable lightdm"
 sudo systemctl enable lightdm.service
 
 
-
-
-cd $HOME/.dotfiles
-chmod +x bootstrap.sh
-./bootstrap.sh
+bash ~/.dotfiles/bootstrap.sh
