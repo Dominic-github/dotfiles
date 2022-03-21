@@ -4,7 +4,8 @@
 
 
 ```
-curl -sSL 
+git clone https://github.com/Freu1a/dotfiles ~/.dotfiles
+bash ~/.dotfiles/install.sh
 ```
 
 ## Tools
