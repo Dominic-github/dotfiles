@@ -105,7 +105,7 @@ sudo pacman -S brightnessctl
 # for print screenshot
 echo "
 ====================================
-           Install xclip,maim...
+        Install xclip,maim...
 ====================================
 "
 sudo pacman -S xclip

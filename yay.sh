@@ -1,6 +1,15 @@
 if test ! $(which yay); then
    sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git ~/git-clone/yay && cd ~/git-clone/yay && makepkg -si && cd ~
 fi
+
+#font 
+echo "
+====================================
+       Install Nerd-font...
+====================================
+"
+yay -S nerd-fonts-fira-code
+yay -S nerd-fonts-roboto-mono
 echo "
 ====================================
        Install i3lock-color...
@@ -20,7 +29,7 @@ echo "
      Install betterlockscreen...
 ====================================
 "
-yay -S betterlockscreen
+yay -S betterlockscreen-git
 
 echo "
 ====================================
@@ -48,7 +57,7 @@ echo "
   System enable betterlockscreen...
 ====================================
 "
-sudo systemctl enable betterlockscreen@USER
+sudo systemctl enable betterlockscreen@$USER
 
 echo "
 ====================================
