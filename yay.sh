@@ -40,6 +40,13 @@ yay -S lightdm-webkit-theme-aether
 
 echo "
 ====================================
+           Install ibus...
+====================================
+..."
+yay -S ibus-bamboo
+
+echo "
+====================================
           Install lolcat...
 ====================================
 "
@@ -61,7 +68,7 @@ sudo systemctl enable betterlockscreen@$USER
 
 echo "
 ====================================
-        System enable lightdm
+       System enable lightdm...
 ====================================
 "
 sudo systemctl enable lightdm.service

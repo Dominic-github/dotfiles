@@ -11,6 +11,9 @@
     
     #picom
     exec_always picom
+    
+    #ibus
+    exec_always ibus-daemon -drx
 
 #=========================================================================
 
