@@ -176,6 +176,7 @@ echo "
 "
 sudo pacman -S polybar
 
+
 #fonts
   #see japanese and emoji
 sudo pacman -S noto-fonts-cjk 
@@ -185,5 +186,7 @@ sudo pacman -S noto-fonts
 #audio
 sudo pacman -S pulseaudio
 
+# Some to neovim
+sudo pacman -S ctags
 
 
