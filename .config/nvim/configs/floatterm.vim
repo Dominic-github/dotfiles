@@ -49,6 +49,6 @@ tnoremap <silent> 	<leader>tf 		<C-\><C-n><C-W><Left>
 nnoremap   <F8>    :FloatermNew --position=bottomleft --height=0.8 --width=0.6 --title='Git' lazygit<CR>
 
 "compile and run c/c++
-nnoremap <F12> :w <CR> :FloatermNew --autoclose=0 gcc % -o %< -lm && ./%< <CR>
+nnoremap <F12> :w <CR> :FloatermNew --autoclose=0 g++ % -o %< -lm && ./%< <CR>
 
 
