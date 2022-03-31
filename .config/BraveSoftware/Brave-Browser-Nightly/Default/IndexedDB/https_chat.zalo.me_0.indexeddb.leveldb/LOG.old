@@ -1,6 +1,0 @@
-2022/03/26-15:32:08.173 7119 Creating DB /home/freyja/.config/BraveSoftware/Brave-Browser-Nightly/Default/IndexedDB/https_chat.zalo.me_0.indexeddb.leveldb since it was missing.
-2022/03/26-15:32:08.181 7119 Reusing MANIFEST /home/freyja/.config/BraveSoftware/Brave-Browser-Nightly/Default/IndexedDB/https_chat.zalo.me_0.indexeddb.leveldb/MANIFEST-000001
-2022/03/26-15:32:11.350 717e Level-0 table #5: started
-2022/03/26-15:32:11.352 717e Level-0 table #5: 3344 bytes OK
-2022/03/26-15:32:11.353 717e Delete type=0 #3
-2022/03/26-15:32:11.353 717e Manual compaction at level-0 from (begin) .. (end); will stop at (end)

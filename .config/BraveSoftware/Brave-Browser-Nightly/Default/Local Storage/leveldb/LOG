@@ -1,6 +1,0 @@
-2022/03/30-13:26:49.255 3 Reusing MANIFEST /home/freyja/.config/BraveSoftware/Brave-Browser-Nightly/Default/Local Storage/leveldb/MANIFEST-000001
-2022/03/30-13:26:49.256 3 Recovering log #79
-2022/03/30-13:26:49.256 3 Reusing old log /home/freyja/.config/BraveSoftware/Brave-Browser-Nightly/Default/Local Storage/leveldb/000079.log 
-2022/03/30-22:44:38.408 18 Level-0 table #84: started
-2022/03/30-22:44:38.410 18 Level-0 table #84: 18959 bytes OK
-2022/03/30-22:44:38.412 18 Delete type=0 #79
