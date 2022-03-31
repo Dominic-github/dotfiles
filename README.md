@@ -1,18 +1,13 @@
 # Dotfiles
-
+## Screenshot
+<img src="https://github.com/Frey1a/dotfiles/tree/main/image/Screenshot/Main">
+<img src="https://github.com/Frey1a/dotfiles/tree/main/image/Screenshot/srcTerminal">
+<img src="https://github.com/Frey1a/dotfiles/tree/main/image/Screenshot/srcNeovim">
+<img src="https://github.com/Frey1a/dotfiles/tree/main/image/Screenshot/Srcneovim2">
 ## Install
-
-
 ```
-git clone https://github.com/Freu1a/dotfiles ~/.dotfiles
+git clone https://github.com/Frey1a/dotfiles ~/.dotfiles
 bash ~/.dotfiles/install.sh
-```
-##### If you get an error "could not resolve host github.com" you can try that
-[Source](https://stackoverflow.com/questions/20370294/git-could-not-resolve-host-github-com-error-while-cloning-remote-repository-in)
-```
-git config --global --unset http.proxy
-
-git config --global --unset https.proxy
 ```
 ## Tools
 - [rofi](https://github.com/davatorium/rofi)
