@@ -1,6 +1,6 @@
-# Dotfiles
+# 🖥 Dotfiles
 
-## Screenshot
+## 📸 Screenshot
 
 <img display="flex" align-item ="center" width="683px" height="384px" src="https://github.com/Frey1a/dotfiles/blob/main/image/Screenshot/Main.jpg?raw=true">
 </br>
@@ -8,12 +8,12 @@
 <img display="flex" align-item ="center" width="683px" height="384px" src="https://github.com/Frey1a/dotfiles/blob/main/image/Screenshot/srcNeovim.jpg?raw=true">
 </br>
 
-## Install
+## 🚀 Install
 ```
 git clone https://github.com/Frey1a/dotfiles ~/.dotfiles
 bash ~/.dotfiles/install.sh
 ```
-## Tools
+## 🛠️ Tools
 - [rofi](https://github.com/davatorium/rofi)
 - [polybar](https://github.com/polybar/polybar)
 - [picom](https://github.com/yshui/picom)
