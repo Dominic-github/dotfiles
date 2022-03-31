@@ -1,9 +1,16 @@
 # Dotfiles
+
 ## Screenshot
-<img src="https://github.com/Frey1a/dotfiles/tree/main/image/Screenshot/Main">
-<img src="https://github.com/Frey1a/dotfiles/tree/main/image/Screenshot/srcTerminal">
-<img src="https://github.com/Frey1a/dotfiles/tree/main/image/Screenshot/srcNeovim">
-<img src="https://github.com/Frey1a/dotfiles/tree/main/image/Screenshot/Srcneovim2">
+
+<img src="https://github.com/Frey1a/dotfiles/tree/main/image/Screenshot/Main.jpg">
+
+<img src="https://github.com/Frey1a/dotfiles/tree/main/image/Screenshot/srcTerminal.jpg">
+
+<img src="https://github.com/Frey1a/dotfiles/tree/main/image/Screenshot/srcNeovim.jpg">
+
+<img src="https://github.com/Frey1a/dotfiles/tree/main/image/Screenshot/Srcneovim2.jpg">
+
+
 ## Install
 ```
 git clone https://github.com/Frey1a/dotfiles ~/.dotfiles
