@@ -16,7 +16,7 @@ set relativenumber
 set ignorecase
 set smartcase
 
-set tabstop=4
+set tabstop=2
 set nobackup                            " This is recommended by coc
 set nowritebackup                       " This is recommended by coc
 set updatetime=300                      " Faster completion

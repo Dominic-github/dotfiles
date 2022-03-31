@@ -57,9 +57,9 @@ Plug 'ap/vim-css-color' 					"Css Color preview
 Plug 'tpope/vim-fugitive' 						" Git
 Plug 'kdheepak/lazygit.vim'						"lazygit
 
+"muti select for neovim use ctrl + n
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
-
-
-
-
+"wakatime
+Plug 'wakatime/vim-wakatime'
 call plug#end()

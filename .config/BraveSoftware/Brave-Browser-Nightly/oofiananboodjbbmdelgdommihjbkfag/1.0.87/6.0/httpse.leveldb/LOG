@@ -1,0 +1,7 @@
+2022/03/30-13:26:49.508 3c04f Recovering log #3
+2022/03/30-13:26:49.940 3c04f Level-0 table #5: started
+2022/03/30-13:26:50.085 3c04f Level-0 table #5: 2784294 bytes OK
+2022/03/30-13:26:50.090 3c04f Recovering log #62
+2022/03/30-13:26:50.095 3c04f Delete type=3 #2
+2022/03/30-13:26:50.095 3c04f Delete type=0 #62
+2022/03/30-13:26:50.095 3c04f Delete type=0 #3
