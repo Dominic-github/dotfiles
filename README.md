@@ -2,7 +2,7 @@
 
 ## Screenshot
 
-<img align ="center" width="600px" height="400px" src="https://github.com/Frey1a/dotfiles/blob/main/image/Screenshot/Main.jpg?raw=true">
+<img align ="center" width="683px" height="384px" src="https://github.com/Frey1a/dotfiles/blob/main/image/Screenshot/Main.jpg?raw=true">
 
 
 
