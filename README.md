@@ -2,13 +2,13 @@
 
 ## Screenshot
 
-<img src="https://github.com/Frey1a/dotfiles/tree/main/image/Screenshot/Main.jpg">
+<img align ="center" width="600px" height="400px" src="https://github.com/Frey1a/dotfiles/tree/main/image/Screenshot/Main.jpg">
 
-<img src="https://github.com/Frey1a/dotfiles/tree/main/image/Screenshot/srcTerminal.jpg">
+<img align ="center" width="600px" height="400px" src="https://github.com/Frey1a/dotfiles/tree/main/image/Screenshot/srcTerminal.jpg">
 
-<img src="https://github.com/Frey1a/dotfiles/tree/main/image/Screenshot/srcNeovim.jpg">
+<img align ="center" width="600px" height="400px" src="https://github.com/Frey1a/dotfiles/tree/main/image/Screenshot/srcNeovim.jpg">
 
-<img src="https://github.com/Frey1a/dotfiles/tree/main/image/Screenshot/Srcneovim2.jpg">
+<img align ="center" width="600px" height="400px" src="https://github.com/Frey1a/dotfiles/tree/main/image/Screenshot/Srcneovim2.jpg">
 
 
 ## Install
