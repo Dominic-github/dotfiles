@@ -60,8 +60,8 @@
     bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
     # # Screenshots
-     bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/Screenshots/$(date)"   #Prc screen to Pictures/Screenshots
-     bindsym $mod+Print exec --no-startup-id maim --select "/home/$USER/Pictures/Screenshots/$(date)" # Select screen to Pictures/Screenshots
+     bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/Screenshots/$(date).jpg"   #Prc screen to Pictures/Screenshots
+     bindsym $mod+Print exec --no-startup-id maim --select "/home/$USER/Pictures/Screenshots/$(date).jpg" # Select screen to Pictures/Screenshots
 
 # ## Clipboard Screenshots
      bindsym Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png # Selec screen to Ram
