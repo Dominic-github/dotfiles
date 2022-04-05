@@ -10,7 +10,7 @@
     exec_always feh --bg-fill ~/Pictures/image/pixiv/mano2.jpg
     
     #picom
-    exec_always picom
+    exec_always picom --experimental-backends
 		
     #ibus
 	exec_always ibus-daemon -drx
