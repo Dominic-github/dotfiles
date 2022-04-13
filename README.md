@@ -26,4 +26,5 @@ bash ~/.dotfiles/install.sh
 - [brave-nightly](https://brave.com/download-nightly/)
 - [Lightdm Aether](https://github.com/NoiSek/Aether) 
 - [kitty](https://wiki.archlinux.org/title/Kitty)
+- **more...**(check on [pacman.sh](https://github.com/Frey1a/dotfiles/blob/main/pacman.sh) and [yay.sh](https://github.com/Frey1a/dotfiles/blob/main/yay.sh))
 
