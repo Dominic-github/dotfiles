@@ -61,6 +61,15 @@ yay -S logo-ls
 
 echo "
 ====================================
+          Install logo-ls...
+====================================
+"
+sudo pacman -S dunst
+yay -S batify
+
+
+echo "
+====================================
   System enable betterlockscreen...
 ====================================
 "
