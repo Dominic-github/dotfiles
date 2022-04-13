@@ -189,4 +189,5 @@ sudo pacman -S pulseaudio
 # Some to neovim
 sudo pacman -S ctags
 
-
+# notification dunst
+sudo pacman -S dunst

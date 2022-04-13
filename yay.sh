@@ -64,7 +64,6 @@ echo "
           Install logo-ls...
 ====================================
 "
-sudo pacman -S dunst
 yay -S batify
 
 
