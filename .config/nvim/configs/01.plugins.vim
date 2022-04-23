@@ -24,7 +24,7 @@ Plug 'voldikss/vim-floaterm' 					" Float terminal
 
 "Auto complete
 Plug 'neoclide/coc.nvim', {'branch': 'release'} 	"Coc-nvim like IDE
-Plug 'tpope/vim-commentary' 				"Auto comment
+Plug  "tomtom/tcomment_vim"       				  "Auto comment
 Plug 'jiangmiao/auto-pairs' 				"Auto brackets, parens, quotes in pair
 Plug 'andrewradev/tagalong.vim' 		"Rename tag
 Plug 'mattn/emmet-vim' 			"fast code html 
@@ -42,6 +42,7 @@ Plug 'tpope/vim-surround' 		"lets you deal with pairs of things, surrounding thi
 Plug 'yuezk/vim-js' 			"Javascript
 Plug 'maxmellon/vim-jsx-pretty'  			"JSX / React
 Plug 'jackguo380/vim-lsp-cxx-highlight'  	"C++ syntax
+Plug 'othree/javascript-libraries-syntax.vim'    " Syntax for JavaScript libraries
 
 
 "Debugging
