@@ -1,8 +1,9 @@
+"
 "Clipboard
 
 :inoremap <C-v> <ESC>"+pa
 :vnoremap <C-c> "+v
-:vnoremap <C-d> "+d
+:vnoremap <C-e> "+d
 
 
 
