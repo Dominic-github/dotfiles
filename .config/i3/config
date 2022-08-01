@@ -3,9 +3,6 @@
     set $mod Mod4
 
 #===========================EXECUTABLES===================================
-    #Polybar
-    exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
     #feh
     exec_always feh --bg-fill ~/Pictures/image/pixiv/mano2.jpg
     
@@ -14,6 +11,11 @@
 		
     #ibus
 	exec_always ibus-daemon -drx
+	
+	#Polybar
+    exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+
 #=========================================================================
 
 #==============================FONTS======================================
@@ -24,6 +26,13 @@
 #=============================WINDOWS=====================================
     # You can also use any non-zero value if you'd like to have a border
     for_window [class=".*"] border pixel 0
+    for_window [class="kitty"] border pixel 3
+    for_window [class="neovide"] border pixel 3
+
+	#color forcus
+	client.focused #000000 #285577 #ffffff #9e57fa #9e57fa
+	
+
     gaps inner 10
     gaps outer 0
 
@@ -125,6 +134,9 @@
     # Start rofi
     bindsym $mod+d exec rofi -show run
 
+	# neovide
+    bindsym $mod+o exec neovide  
+
     # Rezise windows
     bindsym $mod+r mode "resize"
 
@@ -142,6 +154,9 @@
 
     # Betterlockscreen
     bindsym $mod+shift+m exec betterlockscreen -l dimblur
+		
+	#Open Spotify
+	bindsym $mod+shift+p exec spotify 
 
 
 #=========================================================================

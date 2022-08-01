@@ -14,41 +14,51 @@ scrolling:
 font:
   normal:
     family: Roboto Mono Nerd Font
-    style:  Medium
+    style: Medium
   bold:
     family: Roboto Mono Nerd Font
-    style:  Bold
+    style: Bold
   italic:
     family: Roboto Mono Nerd Font
-    style:  MediumItalic
+    style: MediumItalic
   bold_italic:
     family: Roboto Mono Nerd Font
     style: BoldItalic
-  size: 7
+  size: 9
 draw_bold_text_with_bright_colors: true
 
+# TokyoNight Alacritty Colors
 colors:
+  # Default colors
   primary:
-    background: "#11121D"
-    foreground: "#fff94d"
+    background: "0x1a1b26"
+    foreground: "0xc0caf5"
+
+  # Normal colors
   normal:
-    black: "#32344a"
-    red: "#333333"
-    green: "#9ece6a"
-    yellow: "#e0af68"
-    blue: "#7aa2f7"
-    magenta: "#ad8ee6"
-    cyan: "#449dab"
-    white: "#787c99"
+    black: "0x15161E"
+    red: "0xf7768e"
+    green: "0x9ece6a"
+    yellow: "0xe0af68"
+    blue: "0x7aa2f7"
+    magenta: "0xbb9af7"
+    cyan: "0x7dcfff"
+    white: "0xa9b1d6"
+
+  # Bright colors
   bright:
-    black: "#444b6a"
-    red: "#d4583f"
-    green: "#b9f27c"
-    yellow: "#ff9e64"
-    blue: "#59ffe6"
-    magenta: "#bb9af7"
-    cyan: "#40f75c"
-    white: "#acb0d0"
+    black: "0x414868"
+    red: "0xf7768e"
+    green: "0x9ece6a"
+    yellow: "0xe0af68"
+    blue: "0x7aa2f7"
+    magenta: "0xbb9af7"
+    cyan: "0x7dcfff"
+    white: "0xc0caf5"
+
+  indexed_colors:
+    - { index: 16, color: "0xff9e64" }
+    - { index: 17, color: "0xdb4b4b" }
 
 selection:
   save_to_clipboard: false

@@ -11,9 +11,16 @@ let g:floaterm_rootmarkers = ['.pro']
 
 
 " Set color
-hi Floaterm guibg=grey15
-hi FloatermBorder guifg=#ffff00 guibg=#383838
-hi FloatermNC guibg=gray
+" Set background color 
+hi Floaterm guibg=#110f18
+
+"Set border color
+hi FloatermBorder guifg=#49b4e3 guibg=#110f18
+
+
+" Set floaterm window foreground to gray once the cursor moves out from it
+hi FloatermNC guibg=#2b2033
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -46,7 +53,7 @@ tnoremap <silent> 	<leader>tf 		<C-\><C-n><C-W><Left>
 " => Hotkey to run other console apps
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Git 
-nnoremap   <F8>    :FloatermNew --position=center --height=0.9 --width=0.8 --title='Git' lazygit<CR>
+nnoremap   <silent> <leader>tl    :FloatermNew --position=center --height=0.9 --width=0.8 --title='Git' lazygit<CR>
 
 "compile and run c/c++
 nnoremap <F12> :w <CR> :FloatermNew --autoclose=0 g++ % -o %< -lm && ./%< <CR>

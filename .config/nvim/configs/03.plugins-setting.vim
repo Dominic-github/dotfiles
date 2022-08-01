@@ -41,6 +41,43 @@ let g:ctrlp_custom_ignore = {
 let g:NERDTreeDirArrowExpandable="❤️"
 let g:NERDTreeDirArrowCollapsible="🔥"
 let g:NERDTreeShowBookmarks=1
+		" Exit Vim if NERDTree is the only window remaining in the only tab.
+		autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
+"ctrl p
+    let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
-"Tagalong 
+" config library js
+let g:used_javascript_libs = 'underscore,backbone,jquery,angularjs,react,vue'
+
+" .............................................................................
+" mhinz/vim-grepper
+" .............................................................................
+
+let g:grepper={}
+let g:grepper.tools=["rg"]
+
+xmap gr <plug>(GrepperOperator)
+
+" After searching for text, press this mapping to do a project wide find and
+" replace. It's similar to <leader>r except this one applies to all matches
+" across all files instead of just the current file.
+nnoremap <Leader>f
+  \ :let @s='\<'.expand('<cword>').'\>'<CR>
+  \ :Grepper -cword -noprompt<CR>
+  \ :cfdo %s/<C-r>s//g \| update
+  \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+
+" The same as above except it works with a visual selection.
+xmap <Leader>f
+    \ "sy
+    \ gvgr
+    \ :cfdo %s/<C-r>s//g \| update
+     \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+
+":Rg <search for word>
+"ignore node modules folder
+"
+let g:rg_root_types = ['.git','/node_modules']
+
+let g:rg_derive_root = 'true'
