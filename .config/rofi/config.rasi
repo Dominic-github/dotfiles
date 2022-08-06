@@ -13,41 +13,65 @@ configuration {
     backlight:   #ccffeedd;
     background-color:  transparent;
     dark: #1c1c1c;
+
     // Black
-    black:       #3d352a;
+    black:       #000000;
     lightblack:  #554444;
     tlightblack:  #554444cc;
     //
-    // Red
-    red:         #cd5c5c;
-    lightred:    #cc5533;
+	
+	// Gruvbox
+	bg-gruvbox:   #282828;
+	//
+    
+	// Red
+    red:         #ff1717;
+    lightred:    #ff6969;
+	darkred:     #630000;
     //
+
+	// Orange
+    orange:         #ff5900;
+    lightorange:    #ff9169;
+    //
+
     // Green
     green:       #86af80;
-    lightgreen:     #d3de73;
+    lightgreen:  #53f561;
     //
+
     // Yellow
-    yellow:      #fbff00;
+    yellow:    #fbff00;
+	lightyellow: #deb887;
     //
+
+	// Purple
+	purple:       #710af0;
+	lightpurple:  #a563f7;
+	darkpurple:   #3d2c52;
+	//
+
     // Blue
     blue:      #6495ed;
-    lightblue:     #87ceeb;
+    lightblue: #72c1e0;
+	darkblue:  #2b2f47;
+	tdarkblue:  #2b2f47cc;
     //
-    // Magenta
-    magenta:      #deb887;
-    lightmagenta:     #996600;
-    //
+
     // Cyan
-    cyan:      #b0c4de;
-    tcyan:      #ccb0c4de;
-    lightcyan:     #b0c4de;
+    cyan:      #00ffee;
+    tcyan:     #cc00ffee;
+    lightcyan: #77fcf4;
+    darkcyan:  #02635d;
     //
+
     // White
-    white:      #bbaa99;
+    white:      #ffffff;
     lightwhite:     #ddccbb;
     //
+
     // Bold, Italic, Underline
-    highlight:     underline bold #ffffff;
+    highlight:  underline italic bold #77fcf4;
 
     transparent: rgba(0,0,0,0);
     font: "Roboto Mono Nerd Font 10";
@@ -59,7 +83,6 @@ window {
     padding: 10px;
     border:  0px;
     border-radius: 10px;
-    color: @magenta;
     background-color: @transparent;
     spacing: 0;
     children:  [mainbox];
@@ -72,18 +95,17 @@ mainbox {
 message {
     border-color: @foreground;
     border:  0px 2px 2px 2px;
-//    border-radius: 10px;
     padding: 7;
     background-color: @tcyan;
 }
 message {
     font: "Roboto Mono Nerd Font 8";
-    color: @black;
+    color: @lightblue;
 }
 inputbar {
-    color: @yellow;
+    color: @lightcyan;
     padding: 11px;
-    background-color: @tlightblack;
+    background-color: @tdarkblue;
     border: 2px 2px 2px 2px;
     border-radius:  15px 15px 0px 0px;
     border-color: @foreground;
@@ -101,34 +123,45 @@ listview {
     border-radius: 0px 0px 15px 15px;
     border-color: @foreground;
     border: 0px 2px 2px 2px;
-    background-color: #1c1c1ccc;
-    dynamic: false;
+    background-color: #050505cc;
+	color: @lightorange;
+    dynamic: true;
     lines: 10;
 }
+
+textbox-current-entry{
+color: @lightgreen;
+}
+
 element {
-    padding: 3px;
+    padding: 5px;
     vertical-align: 0.5;
-//    border: 2px;
-    border-radius: 4px;
+    border-radius: 5px;
     background-color: transparent;
-    color: @foreground;
+    color: @lightgreen;
     font:inherit;
 }
+
+element-icon {
+	padding: 0 5px 0 0;
+}
+
 element-text {
     background-color: inherit;
     text-color:       inherit;
 }
 element selected.normal {
-    background-color: @lightgreen;
-	color: #333333;
+    background-color: @lightorange;
+	color: @black;
 }
 element normal active {
-    foreground: @lightblue;
+    foreground: @green;
 }
 element normal urgent {
     foreground: @lightred;
 }
 element alternate normal {
+	foreground: @lightorange;
 }
 element alternate active {
     foreground: @lightblue;
@@ -137,7 +170,7 @@ element alternate urgent {
     foreground: @lightred;
 }
 element selected active {
-    border-radius: 7;
+    border-radius: 6;
     background-color: @lightgreen;
     foreground: @dark;
 }
@@ -146,7 +179,7 @@ element selected urgent {
     foreground: @dark;
 }
 element normal normal {
-
+	foreground: @lightorange;
 }
 vertb {
     expand: false;
@@ -168,7 +201,7 @@ button {
     border-radius: 4px 0px 0px 4px;
     background-color: @tlightblack;
     border-color: @foreground;
-    color: @foreground;
+    color: @backlight;
     horizontal-align: 0.5;
 }
 button selected normal {
@@ -179,9 +212,12 @@ button selected normal {
 }
 error-message {
     expand: true;
-    background-color: #9ef7cb;
-    border-color: #97ff80;
+    background-color: @darkblue;
+    border-color: @lightorange;
     border: 3px;
     border-radius:5px;
     padding: 2em;
+}
+textbox{
+	color: @white;
 }
