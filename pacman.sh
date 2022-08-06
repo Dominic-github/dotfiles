@@ -191,3 +191,6 @@ sudo pacman -S ctags
 
 # notification dunst
 sudo pacman -S dunst
+
+bash ~/.dotfiles/yay.sh
+

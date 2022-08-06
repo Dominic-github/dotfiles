@@ -1,5 +1,4 @@
 
-
 echo "Setting up your Pc"
 
 
@@ -13,12 +12,6 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 
 # Install 
 
-# echo "
-# =================================
-#        Installing lunarvim...
-# =================================
-# "
-# LV_BRANCH=rolling bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/rolling/utils/installer/install.sh)
 
 echo "
 ===============================
@@ -62,7 +55,7 @@ chmod +x $HOME/.config/polybar/launch.sh
 
 # Symlink rofi
 rm -rf $HOME/.config/rofi
-cp-a $HOME/.dotfiles/.config/rofi $HOME/.config
+cp -a $HOME/.dotfiles/.config/rofi $HOME/.config
 
 # Symlink i3-gaps
 rm -rf $HOME/.config/i3
