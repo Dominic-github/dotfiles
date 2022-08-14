@@ -34,9 +34,15 @@ set fish_greeting
 		neofetch --source ~/Pictures/image/pixiv/mano4.jpg | lolcat
 
 		#starship
-		set -x STARSHIP_CONFIG $HOME/.config/starship/starship.toml
-
 		starship init fish | source
+
+		#dunst
+
+		#ibus
+	#	set -x GTK_IM_MODULE ibus
+	#	set -x XMODIFIERS @im=ibus
+	#	set -x QT_IM_MODULE ibus
+	#	pidof ibus-daemon > /dev/null || ibus-daemon -drx
 
 
 
@@ -73,4 +79,3 @@ set fish_greeting
     set -g fish_pager_color_prefix $cyan
     set -g fish_pager_color_completion $foreground
     set -g fish_pager_color_description $comment
-#neofetch
