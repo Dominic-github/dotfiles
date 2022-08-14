@@ -5,7 +5,7 @@
 #===========================EXECUTABLES===================================
     #feh
     exec_always feh --bg-fill ~/Pictures/image/pixiv/mano2.jpg
-    
+
     #picom
     exec_always picom --experimental-backends
 		
@@ -30,7 +30,7 @@
     for_window [class="neovide"] border pixel 3
 
 	#color forcus
-	client.focused #000000 #285577 #ffffff #9e57fa #9e57fa
+	client.focused #000000 #a5e670 #ffffff #a5e670  #a5e670
 	
 
     gaps inner 10
@@ -109,7 +109,10 @@
     bindsym $mod+v split v
 
     # enter fullscreen mode for the focused container
-    bindsym $mod+f fullscreen toggle
+    bindsym $mod++Shiftf fullscreen toggle
+
+	# open file
+	bindsym $mod+f exec nemo 
 
     # change container layout (stacked, tabbed, toggle split)
     bindsym $mod+s layout stacking
@@ -131,8 +134,14 @@
     # focus the parent container
     bindsym $mod+a focus parent
 
+	# Rofi application
+    bindsym $mod+d exec rofi -theme "applications.rasi" -show drun 
+
+	## use rofi as alt+tab
+	bindsym Mod1+Tab exec bash $HOME/.config/tools/rofi/alt-tab-rofi.sh
+
     # Start rofi
-    bindsym $mod+d exec rofi -show run
+    bindsym $mod+Shift+a exec rofi -show run 
 
 	# neovide
     bindsym $mod+o exec neovide  
