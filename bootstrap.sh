@@ -103,7 +103,6 @@ function moveConfig(){
 
 }
 
-
 function RemoveOldConfig(){
 	rm -rf $HOME/.config
 }

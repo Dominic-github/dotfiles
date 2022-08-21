@@ -91,7 +91,7 @@ echo "
 ==============================
 "
 	if test ! $(which i3); then 
-		$RECOMMEND_INSTALL i3
+		$RECOMMEND_INSTALL i3-gaps
 	else
 		printf "i3 is successfully installed"
 	fi
@@ -201,6 +201,18 @@ echo "
 		printf "rhythmbox is successfully installed"
 	fi
 
+		########## Arandr - Monitors GUI ##########
+echo "
+=============================
+|           arandr           |
+==============================
+"	
+	if test ! $(which arandr); then 
+		$RECOMMEND_INSTALL  arandr
+	else
+		printf "arandr is successfully installed"
+	fi
+
 
 		########## Nemo - File manager ##########
 echo "
@@ -280,6 +292,18 @@ echo "
 		printf "feh is successfully installed"
 	fi
 
+	########## Nitrogen - GUI for setting wallpapers ##########
+echo "
+=============================
+|     	   nitrogen          |
+==============================
+"
+	if test ! $(which nitrogen); then 
+		$RECOMMEND_INSTALL nitrogen
+	else
+		printf "nitrogen is successfully installed"
+	fi
+
 
 	########## Sxiv - Image viewer ##########
 echo "
@@ -306,6 +330,17 @@ echo "
 		printf "polybar is successfully installed"
 	fi
 
+	########## Vlc - Musics player ##########
+echo "
+=============================
+|     	     vlc             |
+==============================
+"
+	if test ! $(which vlc); then 
+		$RECOMMEND_INSTALL vlc
+	else
+		printf "vlc is successfully installed"
+	fi
 	
 	########## Python ##########
 echo "
@@ -330,6 +365,19 @@ echo "
 		$RECOMMEND_INSTALL pulseaudio pulseaudio-alsa pulseaudio-bluetooth
 	else
 		printf "pulseaudio is successfully installed"
+	fi
+
+
+	########## Pavucontrol - GUI audio control ##########
+echo "
+=============================
+|     	  pavucontrol         |
+==============================
+"
+	if test ! $(which pavucontrol); then 
+		$RECOMMEND_INSTALL pavucontrol 
+	else
+		printf "pavucontrol is successfully installed"
 	fi
 
 

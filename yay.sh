@@ -84,8 +84,6 @@ echo "
 ==============================
 "
 
-mkdir $HOME/Document/test/git-clone
-
 if test ! $(which yay); then
    $RECOMMEND_INSTALL --needed git base-devel && git clone https://aur.archlinux.org/yay.git ~/git-clone/yay && cd ~/git-clone/yay && makepkg -si && cd $HOME
 
@@ -104,6 +102,19 @@ if test ! $(which betterlockscreen);then
 	$YAYINSTALL betterlockscreen-git
 else
 	printf "betterlockscreen is successfully installed"
+
+fi
+
+	########## Xidlehook - system suspend ##########
+echo "
+=============================
+|         xidlehook          |
+==============================
+"
+if test ! $(which xidlehook);then
+	$YAYINSTALL xidlehook
+else
+	printf "xidlehook is successfully installed"
 
 fi
 
@@ -151,19 +162,6 @@ else
 	printf "brave-nightly is successfully installed"
 fi
 
-		########## Baka-mplayer - Video players ##########
-echo "
-=============================
-|        baka-mplayer        |
-==============================
-"	
-#using baka-mplayer-git for fix bug
-	if test ! $(which baka-mplayer); then 
-		$YAYINSTALL baka-mplayer-git
-	else
-		printf "baka-mplayer is successfully installed"
-	fi
-
 
 
 	########## Logo-ls - show logo file on terminal  ##########
@@ -201,17 +199,33 @@ $RECOMMEND_INSTALL noto-fonts-cjk noto-fonts-emoji noto-fonts
 
 	########## Nerd font ##########
 
+echo "
+=============================
+|         nerd-fonts         |
+==============================
+"
+
+
 $YAYINSTALL nerd-fonts-fira-code
-$YAYINSTALL nerd-fonts-fira-mono
 $YAYINSTALL nerd-fonts-roboto-mono
 
 
 	########## material fonts ##########
 
+echo "
+=============================
+|   material desgin icon     |
+==============================
+"
 $YAYINSTALL ttf-material-design-icons
 
 	########## unifont ##########
 
+echo "
+=============================
+|          unifont           |
+==============================
+"
 $YAYINSTALL ttf-unifont 
 
 
@@ -219,16 +233,32 @@ $YAYINSTALL ttf-unifont
 
 ##### imagemagickis for betterblockscreen
 		if test ! $(which magick); then 
+echo "
+=============================
+|           magick           |
+==============================
+"
 		$RECOMMEND_INSTALL magick
 	else
 		printf "imagemagickis successfully installed"
 	fi
 
 ##### xorg for betterblockscreen
+echo "
+=============================
+|       xorg dependence      |
+==============================
+"
 		$RECOMMEND_INSTALL xorg-xdpyinfo xorg-xrdb xorg-xrandr xorg-xset
 
 ##### w3m for ranger preview image
+
 		if test ! $(which w3m); then 
+echo "
+=============================
+|            w3m             |
+==============================
+							"
 		$RECOMMEND_INSTALL w3m
 	else
 		printf "w3m successfully installed"
@@ -238,6 +268,13 @@ $YAYINSTALL ttf-unifont
 ############### Themes ###############
 
 ########## GTK ################
+
+echo "
+=============================
+|            GTK             |
+==============================
+"
+
 $RECOMMEND_INSTALL gtk3 gtk4
 
 	##########  lxappearance, qt5ct - Tool change theme ##########
@@ -267,24 +304,15 @@ echo "
 		$RECOMMEND_INSTALL gtk-engine-murrine
 		printf "gtk-engine-murrine is successfully installed"
 	
-	########## Nordic-dark-theme - gtk theme ##########
+	########## material-black-theme - gtk theme ##########
 echo "
 =============================
-|     nordic-dark-theme      |
+|  material-black-theme      |
 ==============================
 "
-		$YAYINSTALL nordic-darker-theme 
-		printf "nordic-dark is successfully installed"
+		$YAYINSTALL material-black-colors-theme
+		printf "material-black-theme is successfully installed"
 
-
-	########## Orchis-theme - gtk theme ##########
-echo "
-=============================
-|        orchis-theme        |
-==============================
-"
-		$YAYINSTALL  orchis-theme-git 
-		printf "orchis-theme is successfully installed"
 
 	########## Candy-icons - Icon theme ##########
 echo "

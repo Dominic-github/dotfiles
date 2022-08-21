@@ -4,17 +4,22 @@
 
 #===========================EXECUTABLES===================================
     #feh
-    exec_always feh --bg-fill ~/Pictures/image/pixiv/mano2.jpg
+    exec_always --no-startup-id feh --bg-fill ~/Pictures/image/pixiv/mano2.jpg
 
-    #picom
-    exec_always picom --experimental-backends
-		
-    #ibus
-	exec_always ibus-daemon -drx
+	# auto lock 
+	exec_always --no-startup-id xidlehook --not-when-fullscreen --not-when-audio --timer 180 "systemctl suspend" ""
 	
+    #picom
+    exec_always --no-startup-id picom --experimental-backends
+
 	#Polybar
     exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
+	# network manage applet
+	exec_always --no-startup-id nm-applet
+
+    #ibus
+	exec_always --no-startup-id ibus-daemon -drx
 
 #=========================================================================
 
@@ -49,8 +54,6 @@
     # Mouse, please stop focus whenever you hover to whatever windows plz :(
     focus_follows_mouse no
 
-    exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-    exec --no-startup-id nm-applet
 #=========================================================================
 
 #==========================AUDIO&BRIGHTNESS===============================

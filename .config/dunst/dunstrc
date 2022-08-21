@@ -329,7 +329,7 @@
     #frame_color = "#ff0000"
     timeout = 5
     # Icon for notifications with critical urgency, uncomment to enable
-    icon = ~/.config/dunst/critical.png
+    icon = 󰂚 
 
 
 # Every section that isn't one of the above is interpreted as a rules to
