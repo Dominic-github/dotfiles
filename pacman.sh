@@ -17,7 +17,7 @@ function main(){
 
 	Dependence
 
-	# nextStep
+	nextStep
 }
 
 
@@ -227,16 +227,6 @@ echo "
 	fi
 
 
-	########## Brightnessctl - control backlight ##########
-echo "
-=============================
-|      	brightnessctl        |
-==============================
-"	
-		$RECOMMEND_INSTALL brightnessctl
-		printf "brightnessctl is successfully installed"
-
-
 	########## Neofetch - control backlight ##########
 echo "
 =============================
@@ -431,17 +421,4 @@ function confirm() {
   echo $answer
 }
 
-
-# add group video backlight if enable-scroll not work
-
-# sudo tee -a /etc/udev/rules.d/backlight.rules <<EOF
-# ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="acpi_video0", GROUP="video", MODE="0664"
-#
-# RUN+="/bin/chgrp video /sys/class/backlight/intel_backlight/brightness"
-# RUN+="/bin/chmod g+w /sys/class/backlight/intel_backlight/brightness"
-# EOF
-
-
-# Run main function
-main "$@"
 
