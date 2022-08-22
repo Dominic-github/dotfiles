@@ -46,8 +46,6 @@
   - [Fonts, theming and GTK](#software-fonts)
   - [Apps](#software-apps)
 
-</br>
-
 <div id="install"/>
 
 <br/>
@@ -297,17 +295,15 @@ bindsym $mod+d exec rofi -run --show-icons
 ## Can change run = drun or something
 ```
 
-Change theme (run on terminal):
+Now restart i3 with **mod + Shift+ r**. You should be able to open your
+menu and terminal emulator with keybindings. If you picked rofi, you can
+change its theme like so:
 
 ```bash
 rofi-theme-selector
 ```
 
-Now restart i3 with **mod + Shift+ r**. You should be able to open your
-menu and terminal emulator with keybindings. If you picked rofi, you can
-change its theme like so:
-
-_*Go [here](https://github.com/Frey1a/dotfiles/tree/main/.config/rofi) for more detail*_
+> _Go [here](https://github.com/Frey1a/dotfiles/tree/main/.config/rofi) for my config_
 
 <div id="full-path-of-commands"/>
 
@@ -685,13 +681,13 @@ _Material-Black-Blueberry_ and _Material-Black-Blueberry-Suru_. You can find
 other GTK themes [on this page](https://www.gnome-look.org/browse/cat/135/).
 Once you have your theme folders downloaded, this is what you do:
 
-###### Automatic
+- ##### Automatic
 
 ```bash
 yay -S material-black-colors-theme
 ```
 
-###### Manual install
+- ##### Manual install
 
 ```bash
 ## Assuming you have downloaded Material-Black-Blueberry
@@ -725,13 +721,13 @@ different cursor theme, for that you need
 The theme I use is
 [Sweet Cursor](https://www.gnome-look.org/p/1393084/),:
 
-###### Automatic
+- ##### Automatic
 
 ```bash
 yay -S xcb-util-cursor sweet-cursors-theme-git
 ```
 
-###### Manual install
+- ##### Manual install
 
 ```bash
 sudo pacman -S xcb-util-cursor
@@ -882,7 +878,7 @@ in through _lightdm_.
 | **[Brightnessctl](https://www.archlinux.org/packages/community/x86_64/brightnessctl/)**     | Laptop screen brightness |
 | **[StarShip](https://github.com/starship/starship)**                                        | The cross-shell prompt   |
 | **[Dunst](https://wiki.archlinux.org/index.php/Dunst)**                                     | Desktop notifications    |
-| **[xidlehook](https://github.com/jD91mZM2/xidlehook)**                                      | System suspend           |
+| **[Xidlehook](https://github.com/jD91mZM2/xidlehook)**                                      | System suspend           |
 
 <div id='software-fonts'/>
 

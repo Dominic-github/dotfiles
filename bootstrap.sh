@@ -26,7 +26,7 @@ fi
 }
 
 function ContainerPacket(){
-	LISTDIRCONFIG=$(ls -a $HOME/.dotfiles/.config)
+	LISTDIRCONFIG=$(ls -A $HOME/.dotfiles/.config)
 
 echo "
 ===============================
@@ -76,13 +76,16 @@ echo "
 "
 sudo systemctl enable lightdm.service
 
+
+if test -f /var/lib/AccountsService/icons/default-user.png; then
 echo "
 ====================================
           Avatar Account
 ====================================
 "
-sudo cp $HOME/.dotfiles/image/logo/default-user.png /var/lib/AccountsService/icons/
-sudo sh -c "echo "Icon=/var/lib/AccountsService/icons/default-user.png" >> /var/lib/AccountsService/users/$(whoami)"
+	sudo cp $HOME/.dotfiles/image/logo/default-user.png /var/lib/AccountsService/icons/
+	sudo sh -c "echo "Icon=/var/lib/AccountsService/icons/default-user.png" >> /var/lib/AccountsService/users/$(whoami)"
+fi
 
 }
 
@@ -92,23 +95,34 @@ function msg() {
   local div_width="80"
   printf "%${div_width}s\n" ' ' | tr ' ' -
   printf "%s\n" "$text"
-
 }
 
 function moveConfig(){
 	local NamePacket="$1" 
-	cp -a $HOME/.dotfiles/.config/$NamePacket $HOME/.config/
 
-	echo "Move $HOME/.dotfiles/.config/$NamePacket to $HOME/.config/$NamePacket successfully"
+	if [[ "$NamePacket" == "nvim" ]]; then
+		continue
+	else
+		cp -a $HOME/.dotfiles/.config/$NamePacket $HOME/.config/
+		echo "Move $HOME/.dotfiles/.config/$NamePacket to $HOME/.config/$NamePacket successfully"
 
+	fi
 }
 
 function RemoveOldConfig(){
-	rm -rf $HOME/.config
+	LISTDIRCONFIGCURRENT=$(ls -A $HOME/testdotfile)
+
+	for name in $LISTDIRCONFIGCURRENT
+	do
+		if [[ "$name" == "nvim" ]]; then
+			continue
+		else
+			rm -rf $HOME/.config/$name
+		fi
+	done
 }
 
 function SaveOldConFig(){
-
 	DIRCONFIGNUMBER=1
 	if test -d $HOME/.config;then
 		until false;
@@ -122,11 +136,15 @@ function SaveOldConFig(){
 
 				echo "Move $HOME/.config to $HOME/.old-config-$DIRCONFIGNUMBER successfully"
 				else
+
 					rm -rf $HOME/.old-config-$DIRCONFIGNUMBER
+
 				fi
 				break
 			else
+
 			DIRCONFIGNUMBER=`expr $DIRCONFIGNUMBER + 1`
+
 			fi
 		done
 	fi
