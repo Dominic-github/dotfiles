@@ -4,7 +4,7 @@
 
 #===========================EXECUTABLES===================================
     #feh
-    exec_always --no-startup-id feh --bg-fill ~/Pictures/image/pixiv/mano2.jpg
+    exec_always --no-startup-id feh --bg-fill ~/.dotfile/image/1366x786/6968808.jpg
 
 	# auto lock 
 	exec_always --no-startup-id xidlehook --not-when-fullscreen --not-when-audio --timer 180 "systemctl suspend" ""
