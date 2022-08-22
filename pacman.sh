@@ -421,4 +421,7 @@ function confirm() {
   echo $answer
 }
 
+# Run main function
+main "$@"
+
 
