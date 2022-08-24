@@ -383,6 +383,19 @@ echo "
 		printf "dunst is successfully installed"
 	fi
 
+	########## ibus - keyboard ##########
+echo "
+=============================
+|     	     ibus            |
+==============================
+"
+	if test ! $(which ibus); then 
+		$RECOMMEND_INSTALL ibus
+	else
+		printf "ibus is successfully installed"
+	fi
+
+
 ##############################################
 #            NeoVim - text editor            #
 ##############################################

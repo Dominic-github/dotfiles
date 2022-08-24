@@ -1,0 +1,2 @@
+#!/bin/sh
+feh --no-fehbg --bg-fill '$HOME/.dotfiles/image/1366x786/4785428.jpg' 

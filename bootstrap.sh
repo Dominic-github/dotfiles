@@ -25,6 +25,18 @@ fi
 	print_enjoy
 }
 
+function MoveXProfile(){
+	LISTX11FILE=$(ls -A $HOME/.dotfiles/.config/X11)
+
+	for name in $LISTX11FILE
+	do
+		cp -a $HOME/.dotfiles/.config/X11/name $HOME
+		echo "Move $HOME/.dotfiles/.config/X11/$name to $HOME successfully"
+
+	done
+
+}
+
 function ContainerPacket(){
 	LISTDIRCONFIG=$(ls -A $HOME/.dotfiles/.config)
 
@@ -33,6 +45,7 @@ echo "
        Setting up config...
 ===============================
 "
+	MoveXProfile
 
 	for name in $LISTDIRCONFIG
 	do
