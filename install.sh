@@ -7,6 +7,12 @@ declare BASEDIR=$HOME
 declare ARGS_INSTALL_DEPENDENCIES=1
 declare INTERACTIVE_MODE=1
 
+function SETTIMEOUT(){
+	msg "$1"
+	timeout 5s bash <<EOT
+	sleep 10
+EOT
+}
 
 function nextStep(){
 	bash ~/.dotfiles/pacman.sh
@@ -25,10 +31,6 @@ function main(){
 	print_logo
 
 	detect_platform
-
-	detect_platform_update
-
-	updatePacket
 
 	checkGit
 
@@ -71,43 +73,6 @@ function detect_platform() {
   esac
 }
 
-function detect_platform_update() {
-  OS="$(uname -s)"
-  case "$OS" in
-    Linux)
-      if [ -f "/etc/arch-release" ] || [ -f "/etc/artix-release" ]; then
-        RECOMMEND_UPDATE="sudo pacman -Syu --noconfirm "
-      elif [ -f "/etc/fedora-release" ] || [ -f "/etc/redhat-release" ]; then
-        RECOMMEND_UPDATE="sudo dnf upgrade -y"
-      elif [ -f "/etc/gentoo-release" ]; then
-        RECOMMEND_UPDATE="emerge --update --deep @world"
-      else # assume debian based
-        RECOMMEND_UPDATE="sudo apt update -y"
-      fi
-      ;;
-    FreeBSD)
-      RECOMMEND_UPDATE="sudo pkg update -y"
-      ;;
-    NetBSD)
-      RECOMMEND_UPDATE="sudo pkgin update "
-      ;;
-    OpenBSD)
-      RECOMMEND_UPDATE="doas pkg_add"
-      ;;
-    Darwin)
-      RECOMMEND_UPDATE="brew update"
-      ;;
-    *)
-      echo "OS $OS is not currently supported."
-      exit 1
-      ;;
-  esac
-}
-
-function updatePacket(){
-	$RECOMMEND_UPDATE
-	
-}
 
 function checkGit(){
 echo "
@@ -118,7 +83,7 @@ echo "
 	if test ! $(which git); then 
 		$RECOMMEND_INSTALL git
 	else
-		printf "git is successfully installed"
+		echo "git is successfully installed"
 	fi
 
 }
@@ -132,11 +97,15 @@ function cloneDotFiles(){
 		if test -d $HOME/.dotfiles;then
 			echo "Cloning is successfully"
 		else
+			echo ""
 			echo "Failed to clone repository. Installation failed."
+			echo ""
 			exit 1
 		fi
 	else
-		echo ".dotfiles folder already exists"
+			echo ""
+		echo "Failed to clone repository. '~/.dotfiles' folder already exists"
+			echo ""
 		exit 1
 	fi
 }

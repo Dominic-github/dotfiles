@@ -88,7 +88,9 @@ if test ! $(which yay); then
    $RECOMMEND_INSTALL --needed git base-devel && git clone https://aur.archlinux.org/yay.git ~/git-clone/yay && cd ~/git-clone/yay && makepkg -si && cd $HOME
 
 else
-	printf "yay is successfully installed"
+	echo ""
+	echo "yay is successfully installed"
+	echo ""
 fi
 
 
@@ -101,7 +103,9 @@ echo "
 if test ! $(which betterlockscreen);then
 	$YAYINSTALL betterlockscreen-git
 else
-	printf "betterlockscreen is successfully installed"
+	echo ""
+	echo "betterlockscreen is successfully installed"
+	echo ""
 
 fi
 
@@ -114,7 +118,9 @@ echo "
 if test ! $(which xidlehook);then
 	$YAYINSTALL xidlehook
 else
-	printf "xidlehook is successfully installed"
+	echo ""
+	echo "xidlehook is successfully installed"
+	echo ""
 
 fi
 
@@ -128,7 +134,9 @@ echo "
 if test ! $(which i3lock);then
 	$YAYINSTALL i3lock-color
 else
-	printf "i3lock-color is successfully installed"
+	echo ""
+	echo "i3lock-color is successfully installed"
+	echo ""
 fi
 ### End required
 
@@ -146,7 +154,9 @@ echo "
 if test ! $(which lightdm-webkit2-greeter);then
 	$YAYINSTALL lightdm-webkit-theme-aether-git
 else
-	printf "lightdm-webkit-theme-aether is successfully installed"
+	echo ""
+	echo "lightdm-webkit-theme-aether is successfully installed"
+	echo ""
 fi
 
 
@@ -159,7 +169,9 @@ echo "
 if test ! $(which brave-nightly);then
 	$YAYINSTALL brave-nightly-bin
 else
-	printf "brave-nightly is successfully installed"
+	echo ""
+	echo "brave-nightly is successfully installed"
+	echo ""
 fi
 
 
@@ -173,7 +185,9 @@ echo "
 if test ! $(which logo-ls);then
 	$YAYINSTALL logo-ls
 else
-	printf "logo-ls is successfully installed"
+	echo ""
+	echo "logo-ls is successfully installed"
+	echo ""
 fi
 
 
@@ -186,7 +200,9 @@ echo "
 if test ! $(which lolcat);then
 	$YAYINSTALL lolcat
 else
-	printf "lolcat is successfully installed"
+	echo ""
+	echo "lolcat is successfully installed"
+	echo ""
 fi
 
 
@@ -240,7 +256,9 @@ echo "
 "
 		$RECOMMEND_INSTALL magick
 	else
-		printf "imagemagickis successfully installed"
+	echo ""
+		echo "imagemagickis successfully installed"
+	echo ""
 	fi
 
 ##### xorg for betterblockscreen
@@ -261,7 +279,9 @@ echo "
 							"
 		$RECOMMEND_INSTALL w3m
 	else
-		printf "w3m successfully installed"
+	echo ""
+		echo "w3m successfully installed"
+	echo ""
 	fi
 
 
@@ -289,10 +309,14 @@ echo "
 		if test ! $(which qt5ct); then
 			$RECOMMEND_INSTALL qt5ct	
 		else
-			printf "qt5ct is successfully installed"
+			echo ""
+			echo "qt5ct is successfully installed"
+			echo ""
 		fi
 	else
-		printf "lxappearance is successfully installed"
+		echo ""
+		echo "lxappearance is successfully installed"
+		echo ""
 	fi
 
 	########## gtk-engine-murrine - Require Tool ##########
@@ -302,7 +326,9 @@ echo "
 ==============================
 "
 		$RECOMMEND_INSTALL gtk-engine-murrine
-		printf "gtk-engine-murrine is successfully installed"
+		echo ""
+		echo "gtk-engine-murrine is successfully installed"
+		echo ""
 	
 	########## material-black-theme - gtk theme ##########
 echo "
@@ -311,7 +337,9 @@ echo "
 ==============================
 "
 		$YAYINSTALL material-black-colors-theme
-		printf "material-black-theme is successfully installed"
+		echo ""
+		echo "material-black-theme is successfully installed"
+		echo ""
 
 
 	########## Candy-icons - Icon theme ##########
@@ -321,7 +349,9 @@ echo "
 ==============================
 "
 		$YAYINSTALL candy-icons-git
-		printf "candy-icons is successfully installed"
+		echo ""
+		echo "candy-icons is successfully installed"
+		echo ""
 
 
 	########## Sweet-cursors-theme - Cursor theme ##########
@@ -331,7 +361,9 @@ echo "
 ==============================
 "
 		$YAYINSTALL sweet-cursors-theme-git
-		printf "sweet-cursors-theme is successfully installed"
+		echo ""
+		echo "sweet-cursors-theme is successfully installed"
+		echo ""
 
 }
 

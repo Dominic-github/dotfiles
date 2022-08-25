@@ -93,7 +93,9 @@ echo "
 	if test ! $(which i3); then 
 		$RECOMMEND_INSTALL i3-gaps
 	else
-		printf "i3 is successfully installed"
+		echo ""
+		echo "i3 is successfully installed"
+		echo ""
 	fi
 
 	
@@ -107,7 +109,9 @@ echo "
 	if test ! $(which fish); then 
 		$RECOMMEND_INSTALL fish
 	else
-		printf "fish is successfully installed"
+		echo ""
+		echo "fish is successfully installed"
+		echo ""
 	fi
 
 
@@ -120,7 +124,9 @@ echo "
 	if test ! $(which rofi); then 
 		$RECOMMEND_INSTALL rofi
 	else
-		printf "rofi is successfully installed"
+		echo ""
+		echo "rofi is successfully installed"
+		echo ""
 	fi
 
 
@@ -133,7 +139,9 @@ echo "
 	if test ! $(which kitty); then 
 		$RECOMMEND_INSTALL kitty
 	else
-		printf "kitty is successfully installed"
+		echo ""
+		echo "kitty is successfully installed"
+		echo ""
 	fi
 
 	########## Picom - compositor for X ##########
@@ -145,7 +153,9 @@ echo "
 	if test ! $(which picom); then 
 		$RECOMMEND_INSTALL picom
 	else
-		printf "picom is successfully installed"
+		echo ""
+		echo "picom is successfully installed"
+		echo ""
 	fi
 	
 
@@ -158,7 +168,9 @@ echo "
 	if test ! $(which starship); then 
 		$RECOMMEND_INSTALL starship
 	else
-		printf "starship is successfully installed"
+		echo ""
+		echo "starship is successfully installed"
+		echo ""
 	fi
 	
 
@@ -171,7 +183,9 @@ echo "
 	if test ! $(which brightnessctl); then 
 		$RECOMMEND_INSTALL brightnessctl
 	else
-		printf "brightnessctl is successfully installed"
+		echo ""
+		echo "brightnessctl is successfully installed"
+		echo ""
 	fi
 
 
@@ -184,7 +198,9 @@ echo "
 	if test ! $(which pamixer); then 
 		$RECOMMEND_INSTALL pamixer
 	else
-		printf "pamixer is successfully installed"
+		echo ""
+		echo "pamixer is successfully installed"
+		echo ""
 	fi
 
 
@@ -198,7 +214,9 @@ echo "
 	if test ! $(which rhythmbox); then 
 		$RECOMMEND_INSTALL rhythmbox 
 	else
-		printf "rhythmbox is successfully installed"
+		echo ""
+		echo "rhythmbox is successfully installed"
+		echo ""
 	fi
 
 		########## Arandr - Monitors GUI ##########
@@ -210,7 +228,9 @@ echo "
 	if test ! $(which arandr); then 
 		$RECOMMEND_INSTALL  arandr
 	else
-		printf "arandr is successfully installed"
+		echo ""
+		echo "arandr is successfully installed"
+		echo ""
 	fi
 
 
@@ -223,7 +243,9 @@ echo "
 	if test ! $(which nemo); then 
 		$RECOMMEND_INSTALL  nemo
 	else
-		printf "nemo is successfully installed"
+		echo ""
+		echo "nemo is successfully installed"
+		echo ""
 	fi
 
 
@@ -236,7 +258,9 @@ echo "
 	if test ! $(which neofetch); then 
 		$RECOMMEND_INSTALL neofetch
 	else
-		printf "neofetch is successfully installed"
+		echo ""
+		echo "neofetch is successfully installed"
+		echo ""
 	fi
 
 
@@ -249,13 +273,17 @@ echo "
 	if test ! $(which xclip); then 
 		$RECOMMEND_INSTALL xclip
 	else
-		printf "xclip is successfully installed"
+		echo ""
+		echo "xclip is successfully installed"
+		echo ""
 	fi
 	
 	if test ! $(which maim); then 
 		$RECOMMEND_INSTALL maim
 	else
-		printf "maim is successfully installed"
+		echo ""
+		echo "maim is successfully installed"
+		echo ""
 	fi
 
 	########## Ranger - file manager on terminal ##########
@@ -267,7 +295,9 @@ echo "
 	if test ! $(which ranger); then 
 		$RECOMMEND_INSTALL ranger
 	else
-		printf "ranger is successfully installed"
+		echo ""
+		echo "ranger is successfully installed"
+		echo ""
 	fi
 
 	########## Feh - Image viewer ##########
@@ -279,7 +309,9 @@ echo "
 	if test ! $(which feh); then 
 		$RECOMMEND_INSTALL feh
 	else
-		printf "feh is successfully installed"
+		echo ""
+		echo "feh is successfully installed"
+		echo ""
 	fi
 
 	########## Nitrogen - GUI for setting wallpapers ##########
@@ -291,7 +323,9 @@ echo "
 	if test ! $(which nitrogen); then 
 		$RECOMMEND_INSTALL nitrogen
 	else
-		printf "nitrogen is successfully installed"
+		echo ""
+		echo "nitrogen is successfully installed"
+		echo ""
 	fi
 
 
@@ -304,7 +338,9 @@ echo "
 	if test ! $(which sxiv); then 
 		$RECOMMEND_INSTALL sxiv
 	else
-		printf "sxiv is successfully installed"
+		echo ""
+		echo "sxiv is successfully installed"
+		echo ""
 	fi
 
 	
@@ -317,7 +353,9 @@ echo "
 	if test ! $(which polybar); then 
 		$RECOMMEND_INSTALL polybar
 	else
-		printf "polybar is successfully installed"
+		echo ""
+		echo "polybar is successfully installed"
+		echo ""
 	fi
 
 	########## Vlc - Musics player ##########
@@ -329,7 +367,9 @@ echo "
 	if test ! $(which vlc); then 
 		$RECOMMEND_INSTALL vlc
 	else
-		printf "vlc is successfully installed"
+		echo ""
+		echo "vlc is successfully installed"
+		echo ""
 	fi
 	
 	########## Python ##########
@@ -341,7 +381,9 @@ echo "
 	if test ! $(which python) || test ! $(which python3); then 
 		$RECOMMEND_INSTALL python3
 	else
-		printf "python is successfully installed"
+		echo ""
+		echo "python is successfully installed"
+		echo ""
 	fi
 
 
@@ -354,7 +396,9 @@ echo "
 	if test ! $(which pulseaudio); then 
 		$RECOMMEND_INSTALL pulseaudio pulseaudio-alsa pulseaudio-bluetooth
 	else
-		printf "pulseaudio is successfully installed"
+		echo ""
+		echo "pulseaudio is successfully installed"
+		echo ""
 	fi
 
 
@@ -367,7 +411,9 @@ echo "
 	if test ! $(which pavucontrol); then 
 		$RECOMMEND_INSTALL pavucontrol 
 	else
-		printf "pavucontrol is successfully installed"
+		echo ""
+		echo "pavucontrol is successfully installed"
+		echo ""
 	fi
 
 
@@ -380,7 +426,9 @@ echo "
 	if test ! $(which dunst); then 
 		$RECOMMEND_INSTALL dunst
 	else
-		printf "dunst is successfully installed"
+		echo ""
+		echo "dunst is successfully installed"
+		echo ""
 	fi
 
 	########## ibus - keyboard ##########
@@ -392,7 +440,9 @@ echo "
 	if test ! $(which ibus); then 
 		$RECOMMEND_INSTALL ibus
 	else
-		printf "ibus is successfully installed"
+		echo ""
+		echo "ibus is successfully installed"
+		echo ""
 	fi
 
 
