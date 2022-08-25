@@ -71,13 +71,13 @@
 ###### with bash, zsh, ...
 
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/Frey1a/dotfiles/main/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/Frey1a/dotfiles/main/bin/install.sh)
 ```
 
 ###### with fish
 
 ```bash
-bash (curl -s https://raw.githubusercontent.com/Frey1a/dotfiles/main/install.sh | psub)
+bash (curl -s https://raw.githubusercontent.com/Frey1a/dotfiles/main/bin/install.sh | psub)
 ```
 
 </br>

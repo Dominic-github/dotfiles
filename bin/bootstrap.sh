@@ -17,7 +17,7 @@ if confirm "Would you like to REMOVE current config file"; then
 else
 	SaveOldConFig
 fi
-	
+
 	ContainerPacket
 
 	SetUpPacket
@@ -31,7 +31,9 @@ function MoveXProfile(){
 	for name in $LISTX11FILE
 	do
 		cp -a $HOME/.dotfiles/.config/X11/name $HOME
+		echo ""
 		echo "Move $HOME/.dotfiles/.config/X11/$name to $HOME successfully"
+		echo ""
 
 	done
 
@@ -50,7 +52,8 @@ echo "
 	for name in $LISTDIRCONFIG
 	do
 		msg"======= Symlink $name ======="
-		moveConfig "$name"
+
+		MoveNewConfig "$name"
 	done
 
 }
@@ -58,39 +61,77 @@ echo "
 
 function SetUpPacket(){
 
+
+if [[ "$SHELL" != "/usr/bin/fish" ]];then
+echo ""
 echo "
 ====================================
      	Make default fish
 ====================================
 "
-
 chsh -s /usr/bin/fish
+	if [[ "$SHELL" == "/usr/bin/fish" ]]; then
+	echo ""
+	echo "Success"
+	echo ""
+	fi
+fi
 
 
+if test ! -f  $HOME/.config/systemd/user/default.target.wants/pulseaudio.service && test ! -f $HOME/.config/systemd/user/sockets.target.wants/pulseaudio.socket; then
+echo ""
 echo "
 ====================================
        System enable lightdm...
 ====================================
 "
 systemctl --user enable pulseaudio
+	if test -f  $HOME/.config/systemd/user/default.target.wants/pulseaudio.service && test -f $HOME/.config/systemd/user/sockets.target.wants/pulseaudio.socket; then
+	echo ""
+	echo "Success"
+	echo ""
+	fi
+fi
 
 
+
+if test ! -f /etc/systemd/system/sleep.target.wants/betterlockscreen.$USER.service] && test ! -f /etc/systemd/system/suspend.target.wants/betterlockscreen@$USER.service; then
+echo ""
 echo "
 ====================================
   System enable betterlockscreen...
 ====================================
 "
+echo ""
 sudo systemctl enable betterlockscreen@$USER
+	if test -f /etc/systemd/system/sleep.target.wants/betterlockscreen.$USER.service && test -f /etc/systemd/system/suspend.target.wants/betterlockscreen@$USER.service; then
+	echo ""
+	echo "Success"
+	echo ""
+	fi
+fi
 
+
+
+
+if test ! -f /etc/systemd/system/display-manager.service; then
+echo ""
 echo "
 ====================================
        System enable lightdm...
 ====================================
 "
+echo ""
 sudo systemctl enable lightdm.service
+	if test -f /etc/systemd/system/display-manager.service; then
+	echo ""
+	echo "Success"
+	echo ""
+	fi
+fi
 
 
-if test -f /var/lib/AccountsService/icons/default-user.png; then
+if test ! -f /var/lib/AccountsService/icons/default-user.png; then
 echo "
 ====================================
           Avatar Account
@@ -98,6 +139,12 @@ echo "
 "
 	sudo cp $HOME/.dotfiles/image/logo/default-user.png /var/lib/AccountsService/icons/
 	sudo sh -c "echo "Icon=/var/lib/AccountsService/icons/default-user.png" >> /var/lib/AccountsService/users/$(whoami)"
+echo ""
+	if test -f /var/lib/AccountsService/icons/default-user.png; then
+echo ""
+echo "Success"
+echo ""
+	fi
 fi
 
 }
@@ -110,14 +157,16 @@ function msg() {
   printf "%s\n" "$text"
 }
 
-function moveConfig(){
+function MoveNewConfig(){
 	local NamePacket="$1" 
 
 	if [[ "$NamePacket" == "nvim" ]]; then
 		continue
 	else
 		cp -a $HOME/.dotfiles/.config/$NamePacket $HOME/.config/
+		echo ""
 		echo "Move $HOME/.dotfiles/.config/$NamePacket to $HOME/.config/$NamePacket successfully"
+		echo ""
 
 	fi
 }
@@ -131,6 +180,9 @@ function RemoveOldConfig(){
 			continue
 		else
 			rm -rf $HOME/.config/$name
+			echo ""
+			echo "Remove $HOME/.config/$name successfully"
+			echo ""
 		fi
 	done
 }
@@ -146,8 +198,9 @@ function SaveOldConFig(){
 
 					mv  $HOME/.config $HOME/.old-config-$DIRCONFIGNUMBER
 					mkdir $HOME/.config
-
-				echo "Move $HOME/.config to $HOME/.old-config-$DIRCONFIGNUMBER successfully"
+					echo ""
+					echo "Move $HOME/.config to $HOME/.old-config-$DIRCONFIGNUMBER successfully"
+					echo ""
 				else
 
 					rm -rf $HOME/.old-config-$DIRCONFIGNUMBER
