@@ -174,7 +174,7 @@ function FristRunAfterInstall(){
 	feh --bg-fill $HOME/.dotfiles/image/1366x786/4785428.jpg 
 
 	echo "betterlockscreen"
-	betterlockscreen -u $HOME/.dotfiles/image/1366x786/370227.jpg
+	betterlockscreen -u $HOME/.dotfiles/image/1366x786/370227.jpg dimblur
 
 }
 
