@@ -60,7 +60,7 @@
     //
 
     // Cyan
-    cyan:      #00ffee;
+    tcyan:      #00ffee;
     lightcyan: #77fcf4;
     darkcyan:  #02635d;
     //

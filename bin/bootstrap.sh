@@ -21,6 +21,8 @@ fi
 	ContainerPacket
 
 	SetUpPacket
+
+	FristRunAfterInstall
 	
 	print_enjoy
 }
@@ -104,6 +106,7 @@ echo "
 "
 echo ""
 sudo systemctl enable betterlockscreen@$USER
+
 	if test -f /etc/systemd/system/sleep.target.wants/betterlockscreen.$USER.service && test -f /etc/systemd/system/suspend.target.wants/betterlockscreen@$USER.service; then
 	echo ""
 	echo "Success"
@@ -123,6 +126,15 @@ echo "
 "
 echo ""
 sudo systemctl enable lightdm.service
+
+	if test -f /etc/lightdm; then
+		echo "Remove Lightdm-config"
+		sudo rm -rf /etc/lightdm/lightdm-webkit2-greeter.conf /etc/lightdm/lightdm.conf
+
+		echo "Move Lightdm-config"
+		sudo cp -a $HOME/.dotfiles/.config/lightdm-aether-config/* /etc/lightdm
+	fi
+
 	if test -f /etc/systemd/system/display-manager.service; then
 	echo ""
 	echo "Success"
@@ -131,24 +143,40 @@ sudo systemctl enable lightdm.service
 fi
 
 
-if test ! -f /var/lib/AccountsService/icons/default-user.png; then
+if test -f /var/lib/AccountsService/icons/default-user.png; then
 echo "
 ====================================
           Avatar Account
 ====================================
 "
+	echo "Remove default-user.png "
+	sudo rm -rf /var/lib/AccountsService/icons/default-user.png
+
+	echo "Move default-user.png "
 	sudo cp $HOME/.dotfiles/image/logo/default-user.png /var/lib/AccountsService/icons/
+
+	echo "Set default-user.png => Logo"
 	sudo sh -c "echo "Icon=/var/lib/AccountsService/icons/default-user.png" >> /var/lib/AccountsService/users/$(whoami)"
-echo ""
+
+	echo ""
 	if test -f /var/lib/AccountsService/icons/default-user.png; then
-echo ""
-echo "Success"
-echo ""
+	echo ""
+	echo "Success"
+	echo ""
 	fi
 fi
 
 }
 
+function FristRunAfterInstall(){
+
+	echo "Feh"
+	feh --bg-fill $HOME/.dotfiles/image/1366x786/4785428.jpg 
+
+	echo "betterlockscreen"
+	betterlockscreen -u $HOME/.dotfiles/image/1366x786/370227.jpg
+
+}
 
 function msg() {
   local text="$1"

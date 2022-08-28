@@ -233,7 +233,7 @@ echo "
 |   material desgin icon     |
 ==============================
 "
-$YAYINSTALL ttf-material-design-icons
+$YAYINSTALL ttf-material-design-icons-git
 
 	########## unifont ##########
 
