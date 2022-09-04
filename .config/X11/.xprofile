@@ -1,8 +1,4 @@
 feh --bg-fill ~/Pictures/image/1366x786/4785428.jpg
-
-betterlockscreen -w dimblur
-
 nm-applet &
 ibus-daemon -drx
-
 

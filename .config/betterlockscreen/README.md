@@ -124,7 +124,7 @@ To lockscreen using keyboard shortcut
 Add this line to your `~/.config/i3/config`
 
 ```sh
-bindsym $mod+shift+x exec betterlockscreen -l dim
+bindsym $mod+shift+x exec betterlockscreen -l dimblur
 ```
 
 ### bspwm

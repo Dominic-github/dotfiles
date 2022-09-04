@@ -10,8 +10,14 @@ Plug 'tribela/vim-transparent' 				"opacity neovim
 
 "NERDtree and devicons
 Plug 'scrooloose/nerdtree'
-Plug 'ryanoasis/vim-devicons'
 Plug 'unkiwii/vim-nerdtree-sync' 		"Sync current file	
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+Plug 'ryanoasis/vim-devicons'
+Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
+
+
 
 "File search
 Plug 'junegunn/fzf', 
@@ -36,9 +42,6 @@ Plug 'mlaursen/vim-react-snippets'   "Snippets
 Plug 'moll/vim-node' "For nodejs
 
 
-"Search file = ctrl + p
-Plug 'ctrlpvim/ctrlp.vim'
-
 
 "Vim-surround
 Plug 'tpope/vim-surround' 		"lets you deal with pairs of things, surrounding things
@@ -50,7 +53,6 @@ Plug 'maxmellon/vim-jsx-pretty'  			"JSX / React
 Plug 'jackguo380/vim-lsp-cxx-highlight'  	"C++ syntax
 Plug 'othree/javascript-libraries-syntax.vim' "Syntax for JavaScript libraries
 
-Plug 'jremmen/vim-ripgrep'    "ripgrep
 
 "Debugging
 " Plug 'puremourning/vimspector' 				"vimspector

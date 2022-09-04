@@ -131,13 +131,14 @@
     bindsym $mod+a focus parent
 
 	# Rofi application
-    bindsym $mod+d exec rofi -theme "applications.rasi" -show drun 
+    bindsym $mod+d exec --no-startup-id $HOME/.config/rofi/launchers/type-6/launcher.sh
 
 	## use rofi as alt+tab
-	bindsym Mod1+Tab exec bash $HOME/.config/tools/rofi/alt-tab-rofi.sh
+	bindsym Mod1+Tab exec bash $HOME/.config/rofi/scripts/alt-tab-rofi.sh
 
-    # Start rofi
-    bindsym $mod+Shift+a exec rofi -show run 
+    # Menu power off
+    bindsym $mod+Shift+e exec --no-startup-id $HOME/.config/rofi/powermenu/type-6/powermenu.sh
+
 
 	# neovide
     bindsym $mod+o exec neovide  
@@ -151,14 +152,12 @@
     # Restart the configuration file
     bindsym $mod+Shift+r restart
 
-    # Menu power off
-    bindsym $mod+Shift+e exec ~/.config/tools/rofi/rofi-close-i3.sh
 
     # Open web brave-nightly
     bindsym $mod+n exec brave-nightly
 
     # Betterlockscreen
-    bindsym $mod+shift+m exec betterlockscreen -l dimblur
+    bindsym $mod+shift+m exec betterlockscreen -l dimblur 
 		
 	#Open Spotify
 	bindsym $mod+shift+p exec spotify 
