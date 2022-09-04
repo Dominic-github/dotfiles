@@ -149,24 +149,24 @@ Identify disks:
 lsblk
 ```
 
-Disks are assigned to a *block device* such as `/dev/nvme0n1`.
+Disks are assigned to a _block device_ such as `/dev/nvme0n1`.
 
 Clean the entire disk (**do not** do this if you want to keep your data):
 
-* `# gdisk /dev/nvme0n1`
-* `x` for extra functionality
-* `z` to *zap* (destroy) GPT data structures and exit
-* `y` to proceed
-* `y` to blank out MBR
+- `# gdisk /dev/nvme0n1`
+- `x` for extra functionality
+- `z` to _zap_ (destroy) GPT data structures and exit
+- `y` to proceed
+- `y` to blank out MBR
 
 Create boot partition and root partition:
 
-* `# cfdisk /dev/nvme0n1`
-* Select `gpt`
-* Hit `[   New   ]` to create a new patition
-* Give the boot partition `1G` and let the rest for the root partition
-* Select the boot partition and hit `[   Type   ]` to choose `EFI System`
-* Hit `[   Write   ]` then type `yes` to save, then hit `[   Quit   ]`
+- `# cfdisk /dev/nvme0n1`
+- Select `gpt`
+- Hit `[ New ]` to create a new patition
+- Give the boot partition `1G` and let the rest for the root partition
+- Select the boot partition and hit `[ Type ]` to choose `EFI System`
+- Hit `[ Write ]` then type `yes` to save, then hit `[ Quit ]`
 
 > #### 📝 Format the partitions
 
@@ -410,18 +410,18 @@ Add a new user named `your-name`:
 useradd -m your-name
 ```
 
-
 Protect the newly created user `your-name` with a password:
 
 ```bash
 passwd your-name
 ```
 
- Grant permissions to users
+Grant permissions to users
 
- ```bash
- usermod -aG wheel,audio,video,optical,storage,power your-name
- ```
+```bash
+usermod -aG wheel,audio,video,optical,storage,power your-name
+```
+
 Establish `nvim` as the **visudo** editor:
 
 `EDITOR=nvim visudo`
@@ -714,7 +714,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 ```
 
-<div id='monitor' />
+<div id='monitors' />
 
 ##### 📝 Monitors
 

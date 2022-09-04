@@ -1,0 +1,5 @@
+*.pyc
+*.pyo
+__init__.py
+.mypy_cache/
+__pycache__/

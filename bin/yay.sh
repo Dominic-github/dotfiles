@@ -1,35 +1,9 @@
 #!/bin/bash
 
-declare BASEDIR=$HOME
 
-declare ARGS_INSTALL_DEPENDENCIES=1
-declare INTERACTIVE_MODE=1
-
-declare YAYINSTALL="yay -S --noconfirm "
-
-
-function SETTIMEOUT(){
-	msg "$1"
-	timeout 5s bash <<EOT
-	sleep 10
-EOT
-}
-function nextStep(){
-	bash $HOME/.dotfiles/bin/bootstrap.sh
-}
-
-
-function msg() {
-  local text="$1"
-  local div_width="80"
-  printf "%${div_width}s\n" ' ' | tr ' ' -
-  printf "%s\n" "$text"
-}
-
+# =============================================================
 
 function main(){
-
-	detect_platform
 
 	DependenceYay
 	
@@ -37,173 +11,163 @@ function main(){
 
 }
 
-function detect_platform() {
-  OS="$(uname -s)"
-  case "$OS" in
-    Linux)
-      if [ -f "/etc/arch-release" ] || [ -f "/etc/artix-release" ]; then
-        RECOMMEND_INSTALL="sudo pacman -S --noconfirm "
-      elif [ -f "/etc/fedora-release" ] || [ -f "/etc/redhat-release" ]; then
-        RECOMMEND_INSTALL="sudo dnf install -y"
-      elif [ -f "/etc/gentoo-release" ]; then
-        RECOMMEND_INSTALL="emerge -tv"
-      else # assume debian based
-        RECOMMEND_INSTALL="sudo apt install -y"
-      fi
-      ;;
-    FreeBSD)
-      RECOMMEND_INSTALL="sudo pkg install -y"
-      ;;
-    NetBSD)
-      RECOMMEND_INSTALL="sudo pkgin install"
-      ;;
-    OpenBSD)
-      RECOMMEND_INSTALL="doas pkg_add"
-      ;;
-    Darwin)
-      RECOMMEND_INSTALL="brew install"
-      ;;
-    *)
-      echo "OS $OS is not currently supported."
-      exit 1
-      ;;
-  esac
+
+# =============================================================
+
+function nextStep(){
+
+	bash $HOME/.dotfiles/bin/bootstrap.sh
 }
 
 
 
+# $1 is text, "" if you dont want show text
+# $2 is time delay , default is 5s
+# using ex: SETTIMEOUT "abc" 2s
+# using ex: SETTIMEOUT "" 2s
+# using ex: SETTIMEOUT "asdasd" 
+
+function SETTIMEOUT(){
+
+	DefaultTime=5s
+
+	if ! [ -z $2 ] ;then
+		DefaultTime=$2
+	fi
+    
+	if ! [ -z "$1" ] ;then
+		msg "$1"
+	fi
+	timeout $DefaultTime bash <<EOT
+	sleep 10
+EOT
+}
+
+
+function msg() {
+
+  local text="$1"
+  local div_width="80"
+  echo -e ${BPurple}$(printf "%${div_width}s\n" ' ' | tr ' ' -) ${Color_Off}
+  echo -e ${BYellow}"[!] $(printf "%s\n" "$text")" ${Color_Off}
+}
+
+
 	
 function DependenceYay(){
+
 	#!!!!!!!!! IMPORTANT !!!!!!!
 
 
 	########## Yay ##########
-echo "
-=============================
-|     	     Yay             |
-==============================
-"
+	echo -e ${BBlue}"\n[*] Installing Yay ... \n" ${Color_Off}
 
-if test ! $(which yay); then
-   $RECOMMEND_INSTALL --needed git base-devel && git clone https://aur.archlinux.org/yay.git ~/git-clone/yay && cd ~/git-clone/yay && makepkg -si && cd $HOME
 
-else
-	echo ""
-	echo "yay is successfully installed"
-	echo ""
-fi
+	if ! [ $(which yay) ]; then
+   		$RECOMMEND_INSTALL --needed git base-devel && git clone https://aur.archlinux.org/yay.git ~/git-clone/yay && cd ~/git-clone/yay && makepkg -si && cd $HOME
+
+	else
+		SETTIMEOUT "" 1s
+		echo -e ${BGreen}"[*] Yay is successfully Installed.\n" ${Color_Off}
+
+	fi
 
 
 	########## Betterlockscreen - locker-background ##########
-echo "
-=============================
-|      betterlockscreen      |
-==============================
-"
-if test ! $(which betterlockscreen);then
-	$YAYINSTALL betterlockscreen-git
-else
-	echo ""
-	echo "betterlockscreen is successfully installed"
-	echo ""
+	echo -e ${BBlue}"\n[*] Installing Betterlockscreen ... \n" ${Color_Off}
 
-fi
+	if ! [ $(which betterlockscreen) ];then
+		$YAYINSTALL betterlockscreen-git
+
+	else
+		SETTIMEOUT "" 1s
+		echo -e ${BGreen}"[*] Betterlockscreen is successfully Installed.\n" ${Color_Off}
+
+	fi
 
 	########## Xidlehook - system suspend ##########
-echo "
-=============================
-|         xidlehook          |
-==============================
-"
-if test ! $(which xidlehook);then
-	$YAYINSTALL xidlehook
-else
-	echo ""
-	echo "xidlehook is successfully installed"
-	echo ""
+	echo -e ${BBlue}"\n[*] Installing Xidlehook ... \n" ${Color_Off}
 
-fi
+	if ! [ $(which xidlehook) ] ;then
+		$YAYINSTALL xidlehook
+
+	else
+		SETTIMEOUT "" 1s
+		echo -e ${BGreen}"[*] Xidlehook is successfully Installed.\n" ${Color_Off}
+
+	fi
 
 ### System Requirements Of Betterlockscreen
 	########## i3lock - required  ##########
-echo "
-=============================
-|        i3lock-color        |
-==============================
-"
-if test ! $(which i3lock);then
-	$YAYINSTALL i3lock-color
-else
-	echo ""
-	echo "i3lock-color is successfully installed"
-	echo ""
-fi
+	echo -e ${BBlue}"\n[*] Installing i3-lock ... \n" ${Color_Off}
+
+	if ! [  $(which i3lock) ];then
+		$YAYINSTALL i3lock-color
+
+	else
+		SETTIMEOUT "" 1s
+		echo -e ${BGreen}"[*] I3-lock is successfully Installed.\n" ${Color_Off}
+
+	fi
 ### End required
 
 
 	########## lightdm - login screen ##########
-echo "
-===================================
-|    lightdm-webkit-theme-aether   |
-====================================
-"
+	echo -e ${BBlue}"\n[*] Installing Lightdm-webkit-theme-aether ... \n" ${Color_Off}
+
 
 ## lightdm-webkit-theme-aether required: 
 ##          + lightdm-webkit2-greeter 
 ##          + lightdm
-if test ! $(which lightdm-webkit2-greeter);then
-	$YAYINSTALL lightdm-webkit-theme-aether-git
-else
-	echo ""
-	echo "lightdm-webkit-theme-aether is successfully installed"
-	echo ""
-fi
+
+	if ! [ $(which lightdm-webkit2-greeter) ];then
+		$YAYINSTALL lightdm-webkit-theme-aether-git
+
+	else
+		SETTIMEOUT "" 1s
+		echo -e ${BGreen}"[*] Lightdm-webkit-theme-aether is successfully Installed.\n" ${Color_Off}
+
+	fi
 
 
 	########## Brave-nightly - Web browse ##########
-echo "
-=============================
-|       brave-nightly        |
-==============================
-"
-if test ! $(which brave-nightly);then
-	$YAYINSTALL brave-nightly-bin
-else
-	echo ""
-	echo "brave-nightly is successfully installed"
-	echo ""
-fi
+	echo -e ${BBlue}"\n[*] Installing Brave-nightly ... \n" ${Color_Off}
+
+	if ! [ $(which brave-nightly) ];then
+		$YAYINSTALL brave-nightly-bin
+
+	else
+		SETTIMEOUT "" 1s
+		echo -e ${BGreen}"[*] Brave-nightly is successfully Installed.\n" ${Color_Off}
+
+	fi
 
 
 
 	########## Logo-ls - show logo file on terminal  ##########
-echo "
-=============================
-|          logo-ls           |
-==============================
-"
-if test ! $(which logo-ls);then
-	$YAYINSTALL logo-ls
-else
-	echo ""
-	echo "logo-ls is successfully installed"
-	echo ""
-fi
+	echo -e ${BBlue}"\n[*] Installing Logo-ls ... \n" ${Color_Off}
+
+	if ! [ $(which logo-ls) ];then
+		$YAYINSTALL logo-ls
+
+	else
+		SETTIMEOUT "" 1s
+		echo -e ${BGreen}"[*] Logo-ls is successfully Installed.\n" ${Color_Off}
+
+	fi
 
 
 	########## Lolcat - color neofetch ##########
-echo "
-=============================
-|          lolcat            |
-==============================
-"
-if test ! $(which lolcat);then
+	echo -e ${BBlue}"\n[*] Installing Lolcat ... \n" ${Color_Off}
+
+	if ! [ $(which lolcat) ];then
 	$YAYINSTALL lolcat
-else
-	echo ""
-	echo "lolcat is successfully installed"
-	echo ""
-fi
+
+	else
+		SETTIMEOUT "" 1s
+		echo -e ${BGreen}"[*] Lolcat is successfully Installed.\n" ${Color_Off}
+
+	fi
 
 
 #########################################
@@ -211,77 +175,81 @@ fi
 #########################################
 
 	########## Noto fonts - japanese ##########
-$RECOMMEND_INSTALL noto-fonts-cjk noto-fonts-emoji noto-fonts
+	echo -e ${BBlue}"\n[*] Installing Noto-fonts ... \n" ${Color_Off}
+
+	$RECOMMEND_INSTALL noto-fonts-cjk noto-fonts-emoji noto-fonts
+
+	SETTIMEOUT "" 1s
+	echo -e ${BGreen}"[*] Noto-fonts is successfully Installed.\n" ${Color_Off}
+
 
 	########## Nerd font ##########
 
-echo "
-=============================
-|         nerd-fonts         |
-==============================
-"
+	## Fira Code Nerd Font
+
+	echo -e ${BBlue}"\n[*] Installing Fira-Code-Nerd-Font ... \n" ${Color_Off}
+
+	$YAYINSTALL nerd-fonts-fira-code
+		
+	SETTIMEOUT "" 1s
+	echo -e ${BGreen}"[*] Fira-Code-Nerd-Font is successfully Installed.\n" ${Color_Off}
 
 
-$YAYINSTALL nerd-fonts-fira-code
-$YAYINSTALL nerd-fonts-roboto-mono
+	## Roboto Mono Nerd Font
 
+	echo -e ${BBlue}"\n[*] Installing Roboto-Mono-Nerd-Font ... \n" ${Color_Off}
+
+	$YAYINSTALL nerd-fonts-roboto-mono
+
+	SETTIMEOUT "" 1s
+	echo -e ${BGreen}"[*] Roboto-Mono-Nerd-Font is successfully Installed.\n" ${Color_Off}
 
 	########## material fonts ##########
 
-echo "
-=============================
-|   material desgin icon     |
-==============================
-"
-$YAYINSTALL ttf-material-design-icons-git
+	echo -e ${BBlue}"\n[*] Installing Material-design-icons ... \n" ${Color_Off}
+
+	$YAYINSTALL ttf-material-design-icons-git
+
+	SETTIMEOUT "" 1s
+	echo -e ${BGreen}"[*] Material-design-icons is successfully Installed.\n" ${Color_Off}
+
 
 	########## unifont ##########
 
-echo "
-=============================
-|          unifont           |
-==============================
-"
-$YAYINSTALL ttf-unifont 
+	echo -e ${BBlue}"\n[*] Installing Unifont ... \n" ${Color_Off}
+
+	$YAYINSTALL ttf-unifont 
+
+	SETTIMEOUT "" 1s
+	echo -e ${BGreen}"[*] Unifont is successfully Installed.\n" ${Color_Off}
 
 
 ########## Other dependence ##########
 
 ##### imagemagickis for betterblockscreen
-		if test ! $(which magick); then 
-echo "
-=============================
-|           magick           |
-==============================
-"
-		$RECOMMEND_INSTALL magick
-	else
-	echo ""
-		echo "imagemagickis successfully installed"
-	echo ""
-	fi
 
-##### xorg for betterblockscreen
-echo "
-=============================
-|       xorg dependence      |
-==============================
-"
-		$RECOMMEND_INSTALL xorg-xdpyinfo xorg-xrdb xorg-xrandr xorg-xset
+	echo -e ${BBlue}"\n[*] Installing Magick ... \n" ${Color_Off}
+
+	if ! [ $(which magick) ]; then 
+		$RECOMMEND_INSTALL magick
+
+	else
+		SETTIMEOUT "" 1s
+		echo -e ${BGreen}"[*] Magick is successfully Installed.\n" ${Color_Off}
+
+	fi
 
 ##### w3m for ranger preview image
 
-		if test ! $(which w3m); then 
-echo "
-=============================
-|            w3m             |
-==============================
-							"
+	echo -e ${BBlue}"\n[*] Installing W3m ... \n" ${Color_Off}
+
+	if ! [ $(which w3m) ]; then 
 		$RECOMMEND_INSTALL w3m
+
 	else
-	echo ""
-		echo "w3m successfully installed"
-	echo ""
+		SETTIMEOUT "" 1s
+		echo -e ${BGreen}"[*] W3m is successfully Installed.\n" ${Color_Off}
+
 	fi
 
 
@@ -289,85 +257,86 @@ echo "
 
 ########## GTK ################
 
-echo "
-=============================
-|            GTK             |
-==============================
-"
+	echo -e ${BBlue}"\n[*] Installing Gtk ... \n" ${Color_Off}
 
-$RECOMMEND_INSTALL gtk3 gtk4
+	$RECOMMEND_INSTALL gtk3 gtk4
+
+	SETTIMEOUT "" 1s
+	echo -e ${BGreen}"[*] Gtk is successfully Installed.\n" ${Color_Off}
+
 
 	##########  lxappearance, qt5ct - Tool change theme ##########
 
-echo "
-=============================
-|    lxappearance, qt5ct     |
-==============================
-"
-	if test ! $(which lxappearance); then 
+
+	echo -e ${BBlue}"\n[*] Installing Lxappearance ... \n" ${Color_Off}
+
+	if ! [ $(which lxappearance) ]; then 
 		$RECOMMEND_INSTALL lxappearance
-		if test ! $(which qt5ct); then
-			$RECOMMEND_INSTALL qt5ct	
-		else
-			echo ""
-			echo "qt5ct is successfully installed"
-			echo ""
-		fi
+
 	else
-		echo ""
-		echo "lxappearance is successfully installed"
-		echo ""
+		SETTIMEOUT "" 1s
+		echo -e ${BGreen}"[*] Lxappearance is successfully Installed.\n" ${Color_Off}
+
+	fi
+
+
+	echo -e ${BBlue}"\n[*] Installing Qt5ct ... \n" ${Color_Off}
+
+	if ! [ $(which qt5ct) ]; then
+		$RECOMMEND_INSTALL qt5ct	
+
+	else
+		SETTIMEOUT "" 1s
+		echo -e ${BGreen}"[*] Qt5ct is successfully Installed.\n" ${Color_Off}
+
 	fi
 
 	########## gtk-engine-murrine - Require Tool ##########
-echo "
-=============================
-|      gtk-engine-murrine    |
-==============================
-"
-		$RECOMMEND_INSTALL gtk-engine-murrine
-		echo ""
-		echo "gtk-engine-murrine is successfully installed"
-		echo ""
-	
+
+	echo -e ${BBlue}"\n[*] Installing Magick ... \n" ${Color_Off}
+
+	$RECOMMEND_INSTALL gtk-engine-murrine
+	SETTIMEOUT "" 1s
+
+	echo -e ${BGreen}"[*] Magick is successfully Installed.\n" ${Color_Off}
+
+
 	########## material-black-theme - gtk theme ##########
-echo "
-=============================
-|  material-black-theme      |
-==============================
-"
-		$YAYINSTALL material-black-colors-theme
-		echo ""
-		echo "material-black-theme is successfully installed"
-		echo ""
+
+	echo -e ${BBlue}"\n[*] Installing Material-Black-Theme ... \n" ${Color_Off}
+
+	$YAYINSTALL material-black-colors-theme
+
+	SETTIMEOUT "" 1s
+	echo -e ${BGreen}"[*] Material-Black-Theme is successfully Installed.\n" ${Color_Off}
+
 
 
 	########## Candy-icons - Icon theme ##########
-echo "
-=============================
-|        candy-icons         |
-==============================
-"
-		$YAYINSTALL candy-icons-git
-		echo ""
-		echo "candy-icons is successfully installed"
-		echo ""
+	echo -e ${BBlue}"\n[*] Installing Candy-icons ... \n" ${Color_Off}
+
+	$YAYINSTALL candy-icons-git
+
+	SETTIMEOUT "" 1s
+	echo -e ${BGreen}"[*] Candy-icons is successfully Installed.\n" ${Color_Off}
+
 
 
 	########## Sweet-cursors-theme - Cursor theme ##########
-echo "
-=============================
-|     sweet-cursors-theme    |
-==============================
-"
-		$YAYINSTALL sweet-cursors-theme-git
-		echo ""
-		echo "sweet-cursors-theme is successfully installed"
-		echo ""
+	echo -e ${BBlue}"\n[*] Installing Sweet-cursors-theme ... \n" ${Color_Off}
+
+	$YAYINSTALL sweet-cursors-theme-git
+
+	SETTIMEOUT "" 1s
+	echo -e ${BGreen}"[*] Sweet-cursors-theme is successfully Installed.\n" ${Color_Off}
+
 
 }
 
+
+
 # Run main function
+
 main "$@"
 
 

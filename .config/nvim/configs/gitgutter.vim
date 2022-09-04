@@ -5,5 +5,7 @@ let g:gitgutter_highlight_linenrs = 1
 
 
 highlight GitGutterAdd guifg=#009900 ctermfg=Green
-highlight GitGutterChange guifg=#bbbb00 ctermfg=Yellow
+highlight GitGutterChange guifg=#bbee11 ctermfg=Yellow
 highlight GitGutterDelete guifg=#ff2222 ctermfg=Red
+
+
