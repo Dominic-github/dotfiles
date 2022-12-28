@@ -65,7 +65,7 @@ function MoveXProfile(){
 	do
 		echo -e ${BBlue}"[*] Installing $name configs..." ${Color_Off}
 
-		cp -a $HOME/.dotfiles/.config/X11/name $HOME
+		cp -a $HOME/.dotfiles/.config/X11/$name $HOME
 		if [ -f $HOME/$name ];then
 		SETTIMEOUT "" 1s
 		echo  -e ${BGreen}"[*] Move $HOME/.dotfiles/.config/X11/$name to $HOME success" ${Color_Off}
@@ -169,9 +169,9 @@ echo -e ${BBlue}"
 if ! [ -f /etc/systemd/system/sleep.target.wants/betterlockscreen@$USER.service ] && ! [ -f /etc/systemd/system/suspend.target.wants/betterlockscreen@$USER.service ]; then
 
 
-sudo cp -a $HOME/.dotfiles/.config/betterlockscreen/betterlockscreen@USER.service /etc/systemd/system/suspend.target.wants/
+sudo cp -a $HOME/.dotfiles/.config/betterlockscreen/betterlockscreen@$USER.service /etc/systemd/system/suspend.target.wants/
 
-sudo cp -a $HOME/.dotfiles/.config/betterlockscreen/betterlockscreen@USER.service /etc/systemd/system/sleep.target.wants/
+sudo cp -a $HOME/.dotfiles/.config/betterlockscreen/betterlockscreen@$USER.service /etc/systemd/system/sleep.target.wants/
 
 	if  [ -f /etc/systemd/system/sleep.target.wants/betterlockscreen@$USER.service ] && [ -f /etc/systemd/system/suspend.target.wants/betterlockscreen@$USER.service ]; then
 
@@ -193,7 +193,7 @@ if ! [ -f /etc/systemd/system/display-manager.service ]; then
 
 sudo systemctl enable lightdm.service
 
-	if [ -f /etc/lightdm ]; then
+	if [ -d /etc/lightdm ]; then
 
 		sudo cp -a $HOME/.dotfiles/.config/lightdm-aether-config/* /etc/lightdm
 
@@ -216,7 +216,7 @@ echo -e ${BBlue}"
 " ${Color_Off}
 
 
-if [ -f /var/lib/AccountsService/icons/default-user.png ]; then
+if ! [ -f /var/lib/AccountsService/icons/default-user.png ]; then
 
 
 	# echo "Move default-user.png.\n"

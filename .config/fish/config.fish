@@ -1,8 +1,11 @@
-
-
+# Not show welcome
 set fish_greeting
 
+# Add Path
+set -x PATH "$PATH:$HOME/.local/bin"
+
 # Alias
+
 		# Neovim
 		alias nv='nvim'
 		alias v='nvim'
@@ -31,16 +34,25 @@ set fish_greeting
 
 # Active
 		#neofetch
-		neofetch --source ~/Pictures/image/pixiv/mano4.jpg | lolcat
+		neofetch --source ~/.dotfiles/image/1366x786/340105.jpg | lolcat
 
 		#starship
 		set -x STARSHIP_CONFIG $HOME/.config/starship/starship.toml
 
 		starship init fish | source
 
+# ibus
+      set -x GTK_IM_MODULE xim       # xim
+      set -x QT_IM_MODULE ibus
+      set -x XMODIFIERS "@im=ibus"
+# For software based on qt4
+      set -x QT4_IM_MODULE ibus
+# For software using library clutter/OpenGL
+      set -x CLUTTER_IM_MODULE ibus
+      set -x GLFW_IM_MODULE ibus
 
 
-# TokyoNight Color Palette
+#  Color Palette
     set -l foreground c0caf5
     set -l selection 33467C
     set -l comment 565f89
