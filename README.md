@@ -1,4 +1,4 @@
-# Hi there! Welcome to my [dotfiles](https://github.com/Frey1a/dotfiles)
+# Hi there! Welcome to my [dotfiles](https://github.com/Dominic-github/dotfiles)
 
 ![introduce](./.github/assets/introduce.png)
 
@@ -71,13 +71,13 @@
 ###### with bash, zsh, ...
 
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/Frey1a/dotfiles/main/bin/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/Dominic-github/dotfiles/main/bin/install.sh)
 ```
 
 ###### with fish
 
 ```bash
-bash (curl -s https://raw.githubusercontent.com/Frey1a/dotfiles/main/bin/install.sh | psub)
+bash (curl -s https://raw.githubusercontent.com/Dominic-github/dotfiles/main/bin/install.sh | psub)
 ```
 
 </br>
@@ -590,7 +590,7 @@ change its theme like so:
 rofi-theme-selector
 ```
 
-> _Go [here](https://github.com/Frey1a/dotfiles/tree/main/.config/rofi) for my config_
+> _Go [here](https://github.com/Dominic-github/dotfiles/tree/main/.config/rofi) for my config_
 
 <div id="full-path-of-commands"/>
 
@@ -602,7 +602,7 @@ sudo pacman -S which
 
 That's it for i3 , now you can start hacking on it and make it your own.
 Checkout my custom i3 config
-[here](https://github.com/Frey1a/dotfiles/tree/main/.config/i3).
+[here](https://github.com/Dominic-github/dotfiles/tree/main/.config/i3).
 But before that I would recommend configuring basic utilities like audio,
 battery, mounting drives, etc.
 
@@ -824,7 +824,7 @@ notify-send "Hello World"
 #### 📝 Status bar
 
 It will be difficult for a novice to configure the polybar. But think it's simple when you just put the module together.
-Go [Here](https://github.com/Frey1a/dotfiles/tree/main/.config/polybar) for more details
+Go [Here](https://github.com/Dominic-github/dotfiles/tree/main/.config/polybar) for more details
 
 ```bash
 sudo pacman -S polybar
