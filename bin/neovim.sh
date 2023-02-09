@@ -3,10 +3,10 @@
 
 if [[ "$SHELL" == "/usr/bin/fish" ]];then
 
-	bash (curl -s https://raw.githubusercontent.com/Frey1a/nvim/main/bin/install.sh | psub)
+	bash (curl -s https://raw.githubusercontent.com/Dominic-github/nvim-lua/main/bin/install.sh | psub)
 
 else
 
-	bash <(curl -s https://raw.githubusercontent.com/Frey1a/nvim/main/bin/install.sh)
+	bash <(curl -s https://raw.githubusercontent.com/Dominic-github/nvim-lua/main/bin/install.sh)
 
 fi

@@ -25,7 +25,7 @@ yay -S ttf-material-design-icons
 ## Copy my config:
 
 ```bash
-git clone https://github.com/Frey1a/dotfiles.git
+git clone https://github.com/Dominic-github/dotfiles.git --depth 1
 cp -a dotfiles/.config/kitty ~/.config
 rm -rf dotfiles
 ```

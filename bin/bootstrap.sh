@@ -406,8 +406,8 @@ function print_enjoy(){
 			███████╗██║░╚███║╚█████╔╝╚█████╔╝░░░██║░░░██╗
 			╚══════╝╚═╝░░╚══╝░╚════╝░░╚════╝░░░░╚═╝░░░╚═╝
 
-# author: Frey1a
-# github: https://github.com/Frey1a
+# author: Dominic-github
+# github: https://github.com/Dominic-github
 
 EOF
 

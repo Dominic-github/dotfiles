@@ -17,12 +17,10 @@ sudo pacman -S feh mpv
 
 [Ranger icons](https://github.com/alexanderjeurissen/ranger_devicons)
 
-> Ranger icons is already on my config
-
 ## Copy my config:
 
 ```bash
-git clone https://github.com/Frey1a/dotfiles.git
+git clone https://github.com/Dominic-github/dotfiles.git --depth 1
 cp -a dotfiles/.config/ranger ~/.config
 rm -rf dotfiles
 ```

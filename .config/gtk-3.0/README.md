@@ -26,7 +26,7 @@ yay -S candy-icons-git
 ## Copy my config:
 
 ```bash
-git clone https://github.com/Frey1a/dotfiles.git
+git clone https://github.com/Dominic-github/dotfiles.git --depth 1
 cp -a dotfiles/.config/gtk-3.0 ~/.config
 rm -rf dotfiles
 ```

@@ -78,7 +78,7 @@ export On_IWhite="\033[0;107m"   # White
 # =============================================================
 
 
-declare DOTFILE_REMOTE="https://github.com/Frey1a/dotfiles.git" 
+declare DOTFILE_REMOTE="https://github.com/Dominic-github/dotfiles.git" 
 
 declare BASEDIR=$HOME
 
@@ -241,8 +241,8 @@ function print_logo() {
 	██████╔╝╚█████╔╝░░░██║░░░██║░░░░░██║███████╗███████╗██████╔╝
 	╚═════╝░░╚════╝░░░░╚═╝░░░╚═╝░░░░░╚═╝╚══════╝╚══════╝╚═════╝░
 
-# author: Frey1a
-# github: https://github.com/Frey1a
+# author: Dominic-github
+# github: https://github.com/Dominic-github
 
 EOF
 
