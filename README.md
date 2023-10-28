@@ -118,7 +118,15 @@ ls /sys/firmware/efi/efivars
 Connect to Wi-Fi network:
 
 ```bash
-wifi-menu
+iwctl
+
+device list
+ex: wlan0
+
+station 'name of device' get-networks
+ex: station wlan0 get-networks
+
+station wlan0 connect 'name of networks'
 ```
 
 Check if internet connectivity is available:
@@ -126,80 +134,6 @@ Check if internet connectivity is available:
 ```bash
 ping -c 3 archlinux.org
 ```
-
-> #### 📝 Update the system clock
-
-Ensure the system clock is accurate:
-
-```bash
-timedatectl set-ntp true
-```
-
-Check the service status:
-
-```bash
-timedatectl status
-```
-
-> #### 📝 Partition the disks
-
-Identify disks:
-
-```bash
-lsblk
-```
-
-Disks are assigned to a _block device_ such as `/dev/nvme0n1`.
-
-Clean the entire disk (**do not** do this if you want to keep your data):
-
-- `# gdisk /dev/nvme0n1`
-- `x` for extra functionality
-- `z` to _zap_ (destroy) GPT data structures and exit
-- `y` to proceed
-- `y` to blank out MBR
-
-Create boot partition and root partition:
-
-- `# cfdisk /dev/nvme0n1`
-- Select `gpt`
-- Hit `[ New ]` to create a new patition
-- Give the boot partition `1G` and let the rest for the root partition
-- Select the boot partition and hit `[ Type ]` to choose `EFI System`
-- Hit `[ Write ]` then type `yes` to save, then hit `[ Quit ]`
-
-> #### 📝 Format the partitions
-
-Format the boot partition to FAT32:
-
-```bash
-mkfs.fat -F32 /dev/nvme0n1p1
-```
-
-Format the root partition to ext4:
-
-```bash
-mkfs.ext4 /dev/nvme0n1p2
-```
-
-> #### 📝 Mount the file systems
-
-Mount root partition first:
-
-```bash
-mount /dev/nvme0n1p2 /mnt
-```
-
-Then create mount point for boot partition and mount it accordingly:
-
-```bash
-mkdir /mnt/boot
-```
-
-```bash
-mount /dev/nvme0n1p1 /mnt/boot
-```
-
 > #### 📝 Select the mirrors
 
 Make a list of mirrors sorted by their speed then remove those from the list that are out of sync according to their [status](https://www.archlinux.org/mirrors/status/).
@@ -232,12 +166,111 @@ Server = http://f.archlinuxvn.org/archlinux/$repo/os/$arch
 Server = http://archlinux.mirror.pcextreme.nl/$repo/os/$arch
 ```
 
+> #### 📝 Update the system clock
+
+Ensure the system clock is accurate:
+
+```bash
+timedatectl set-ntp true
+```
+
+Check the service status:
+
+```bash
+timedatectl status
+```
+
+
+> #### 📝 Partition the disks
+
+Identify disks:
+
+```bash
+lsblk
+```
+
+Disks are assigned to a _block device_ such as `/dev/sda`.
+
+Create boot partition and root partition:
+
+- `# cfdisk /dev/sda`
+- Select `gpt`
+- Hit `[ New ]` to create a new patition
+- Give the boot partition `1G` and let the rest for the root partition
+- Select the boot partition and hit `[ Type ]` to choose `EFI System`
+- Hit `[ Write ]` then type `yes` to save, then hit `[ Quit ]`
+
+# 
+- **sda1** || 600Mb:  EFI System                            | 
+- **sda2** || 4GB : Linux swap  (= Ram / 2)
+- **sda3** || X GB : Linux filesystem ( 30GB < X < 60GB)
+- **sda4** || else : Linux filesystem
+#
+
+> #### 📝 Format the partitions
+
+Format the boot partition to FAT32:
+
+```bash
+mkfs.fat -F32 /dev/sda1
+```
+
+Format the root partition to ext4:
+
+```bash
+mkfs.ext4 /dev/sda3
+```
+
+```bash
+mkfs.ext4 /dev/sda4
+```
+
+> #### 📝 Create swap file
+
+```bash
+mkswap /dev/sda2
+```
+
+```bash
+swapon /dev/sda2
+```
+
+
+> #### 📝 Mount the file systems
+
+Mount root partition first:
+
+```bash
+mount /dev/sda3 /mnt
+```
+
+Home folder
+```bash
+mkdir /mnt/home
+```
+```bash
+mount /dev/sda4 /mnt/home
+```
+
+Then create mount point for boot partition and mount it accordingly:
+
+```bash
+mkdir /mnt/boot
+```
+
+```bash
+mount /dev/sda1 /mnt/boot
+```
+
+
+
+
 > #### 📝 Install the base and base-devel packages
 
 Use the **pacstrap** script:
 
 ```bash
-pacstrap /mnt base linux linux-firmware base-devel
+pacstrap /mnt base base-devel linux linux-firmware base-devel neovim
 ```
 
 > #### 📝 Generate an fstab file
@@ -256,56 +289,6 @@ Change root to the new system:
 arch-chroot /mnt
 ```
 
-> #### 📝 Install optional packages
-
-```bash
-pacman -S efibootmgr intel-ucode
-```
-
-```bash
-pacman -S networkmanager
-```
-
-```bash
-pacman -S git neovim
-```
-
-> #### 📝 Create swap file
-
-As an alternative to creating an entire swap partition, a swap file offers the ability to vary its size on-the-fly, and is more easily removed altogether.
-
-- Create a 32 GB (depend on your RAM) swap file:
-
-```bash
-fallocate -l 32G /swapfile
-```
-
-- Set the right permissions:
-
-```bash
-chmod 600 /swapfile
-```
-
-- format it to swap:
-
-```bash
-mkswap /swapfile
-```
-
-- Activate the swap file:
-
-```bash
-swapon /swapfile
-```
-
-- Edit fstab at `/etc/fstab` to add an entry for the swap file:
-
-- `nvim /etc/fstab`:
-
-```bash
-swapfile none swap defaults 0 0
-```
-
 > #### 📝 Configure time zone
 
 Set your time zone by region:
@@ -319,6 +302,10 @@ Generate `/etc/adjtime`:
 ```bash
 hwclock --systohc
 ```
+
+
+
+
 
 > #### 📝 Configure locale
 
@@ -337,9 +324,22 @@ echo 'LANG=en_US.UTF-8' > /etc/locale.conf
 > #### 📝 Change host name
 
 Create hostname file at `/etc/hostname` contain the host name, for example:
+- arch-pc is host name
 
 ```bash
-echo 'ArchLinux' > /etc/hostname
+echo 'arch-pc' > /etc/hostname
+```
+
+```bash
+nvim /etc/hosts
+
+
+# Static table lookup for hostnames.
+# See hosts(5) for details.
+127.0.0.1     localhost
+::1           localhost
+127.0.1.1     arch-pc.localdomain       arch-pc
+
 ```
 
 > #### 📝 Set your root password
@@ -350,17 +350,46 @@ passwd
 
 Enter your password then confirm it.
 
+
+> #### 📝 Add new user
+
+Add a new user named `your-name`:
+
+```bash
+useradd -m your-name
+```
+
+Protect the newly created user `your-name` with a password:
+
+```bash
+passwd your-name
+```
+
+Grant permissions to users
+
+```bash
+usermod -aG wheel,audio,video,optical,storage,power your-name
+```
+
+Establish `nvim` as the **visudo** editor:
+
+`EDITOR=nvim visudo`
+
+Then uncomment `%wheel ALL=(ALL) ALL` to allow members of group `wheel` sudo access, uncomment `Defaults targetpw` and change it to `Defaults rootpw` to ask for the root password instead of the user password (then change the comment beside it accordingly).
+
+> #### 📝 Install optional packages
+
+```bash
+pacman -S efibootmgr intel-ucode
+```
+
+```bash
+pacman -S networkmanager
+```
+
 > #### 📝 Install boot loader
 
 There are many ways to boot but I prefer these method
-
-#### Boot with EFISTUB:
-
-Kernel can be booted directly by a UEFI motherboard
-
-```bash
-efibootmgr -d /dev/nvme0n1 -p 1 -c -L "Arch Linux" -l /vmlinuz-linux -u 'initrd=/intel-ucode.img initrd=/initramfs-linux.img root=/dev/nvme0n1p2 rw quiet' -v
-```
 
 #### Boot with systemd-boot
 
@@ -393,7 +422,7 @@ title   Arch Linux
 linux   /vmlinuz-linux
 initrd  /intel-ucode.img
 initrd  /initramfs-linux.img
-options root=/dev/nvme0n1p2 rw quiet
+options root=/dev/sda3
 ```
 
 > #### 📝 Enable network services
@@ -402,31 +431,7 @@ options root=/dev/nvme0n1p2 rw quiet
 systemctl enable NetworkManager
 ```
 
-> #### 📝 Add new user
 
-Add a new user named `your-name`:
-
-```bash
-useradd -m your-name
-```
-
-Protect the newly created user `your-name` with a password:
-
-```bash
-passwd your-name
-```
-
-Grant permissions to users
-
-```bash
-usermod -aG wheel,audio,video,optical,storage,power your-name
-```
-
-Establish `nvim` as the **visudo** editor:
-
-`EDITOR=nvim visudo`
-
-Then uncomment `%wheel ALL=(ALL) ALL` to allow members of group `wheel` sudo access, uncomment `Defaults targetpw` and change it to `Defaults rootpw` to ask for the root password instead of the user password (then change the comment beside it accordingly).
 
 > #### 📝 Reboot
 
