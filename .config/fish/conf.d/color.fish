@@ -1,0 +1,33 @@
+    set -l foreground c0caf5
+    set -l selection 33467C
+    set -l greyBlue 565f89
+    set -l red fa4848
+    set -l orange ffa04d
+    set -l yellow fff645
+    set -l green 9ece6a
+    set -l purple 9d7cd8
+    set -l cyan 5afafa
+    set -l pink bb9af7
+    set -l blue 0d00ff
+
+    # Syntax Highlighting Colors
+    set -g fish_color_normal $foreground
+    set -g fish_color_command $cyan
+    set -g fish_color_keyword $pink
+    set -g fish_color_quote $purple
+    set -g fish_color_redirection $foreground
+    set -g fish_color_end $orange
+    set -g fish_color_error $red
+    set -g fish_color_param $yellow
+    set -g fish_color_comment $greyBlue
+    set -g fish_color_selection --background=$selection
+    set -g fish_color_search_match --background=$selection
+    set -g fish_color_operator $green
+    set -g fish_color_escape $pink
+    set -g fish_color_autosuggestion $greyBlue
+
+    # Completion Pager Colors
+    set -g fish_pager_color_progress $greyBlue
+    set -g fish_pager_color_prefix $cyan
+    set -g fish_pager_color_completion $foreground
+    set -g fish_pager_color_description $pink

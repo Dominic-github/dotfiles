@@ -1,0 +1,42 @@
+# Zathura configuration file
+# See man `man zathurarc'
+map r reload
+map p print
+map i recolor
+map J zoom out
+map K zoom in
+map R rotate
+unmap f
+map f toggle_fullscreen
+map [fullscreen] f toggle_fullscreen
+
+
+set window-title-basename "true"
+set selection-clipboard "clipboard"
+
+# Open document in fit-width mode by default
+
+# One page per row by default
+set pages-per-row 1
+
+#stop at page boundries
+set scroll-page-aware "true"
+set scroll-full-overlap 0.01
+set scroll-step 100
+
+#zoom settings
+set zoom-min 10
+set guioptions ""
+
+set font "FiraCode 12"
+
+# include current-theme
+#
+include ./current-theme
+
+
+#
+# Startup options
+#
+set adjust-open "best-fit"
+set recolor true

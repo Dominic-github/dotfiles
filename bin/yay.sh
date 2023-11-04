@@ -58,7 +58,6 @@ function DependenceYay(){
 
 	#!!!!!!!!! IMPORTANT !!!!!!!
 
-
 	########## Yay ##########
 	echo -e ${BBlue}"\n[*] Installing Yay ... \n" ${Color_Off}
 
@@ -73,101 +72,6 @@ function DependenceYay(){
 	fi
 
 
-	########## Betterlockscreen - locker-background ##########
-	echo -e ${BBlue}"\n[*] Installing Betterlockscreen ... \n" ${Color_Off}
-
-	if ! [ $(which betterlockscreen) ];then
-		$YAYINSTALL betterlockscreen-git
-
-	else
-		SETTIMEOUT "" 1s
-		echo -e ${BGreen}"[*] Betterlockscreen is successfully Installed.\n" ${Color_Off}
-
-	fi
-
-	########## Xidlehook - system suspend ##########
-	echo -e ${BBlue}"\n[*] Installing Xidlehook ... \n" ${Color_Off}
-
-	if ! [ $(which xidlehook) ] ;then
-		$YAYINSTALL xidlehook
-
-	else
-		SETTIMEOUT "" 1s
-		echo -e ${BGreen}"[*] Xidlehook is successfully Installed.\n" ${Color_Off}
-
-	fi
-
-### System Requirements Of Betterlockscreen
-	########## i3lock - required  ##########
-	echo -e ${BBlue}"\n[*] Installing i3-lock ... \n" ${Color_Off}
-
-	if ! [  $(which i3lock) ];then
-		$YAYINSTALL i3lock-color
-
-	else
-		SETTIMEOUT "" 1s
-		echo -e ${BGreen}"[*] I3-lock is successfully Installed.\n" ${Color_Off}
-
-	fi
-### End required
-
-
-	########## lightdm - login screen ##########
-	echo -e ${BBlue}"\n[*] Installing Lightdm-webkit-theme-aether ... \n" ${Color_Off}
-
-
-## lightdm-webkit-theme-aether required: 
-##          + lightdm-webkit2-greeter 
-##          + lightdm
-
-	if ! [ $(which lightdm-webkit2-greeter) ];then
-		$YAYINSTALL lightdm-webkit-theme-aether-git
-
-	else
-		SETTIMEOUT "" 1s
-		echo -e ${BGreen}"[*] Lightdm-webkit-theme-aether is successfully Installed.\n" ${Color_Off}
-
-	fi
-
-
-	########## Brave-nightly - Web browse ##########
-	echo -e ${BBlue}"\n[*] Installing Brave-nightly ... \n" ${Color_Off}
-
-	if ! [ $(which brave-nightly) ];then
-		$YAYINSTALL brave-nightly-bin
-
-	else
-		SETTIMEOUT "" 1s
-		echo -e ${BGreen}"[*] Brave-nightly is successfully Installed.\n" ${Color_Off}
-
-	fi
-
-
-
-	########## Logo-ls - show logo file on terminal  ##########
-	echo -e ${BBlue}"\n[*] Installing Logo-ls ... \n" ${Color_Off}
-
-	if ! [ $(which logo-ls) ];then
-		$YAYINSTALL logo-ls
-
-	else
-		SETTIMEOUT "" 1s
-		echo -e ${BGreen}"[*] Logo-ls is successfully Installed.\n" ${Color_Off}
-
-	fi
-
-
-	########## Lolcat - color neofetch ##########
-	echo -e ${BBlue}"\n[*] Installing Lolcat ... \n" ${Color_Off}
-
-	if ! [ $(which lolcat) ];then
-	$YAYINSTALL lolcat
-
-	else
-		SETTIMEOUT "" 1s
-		echo -e ${BGreen}"[*] Lolcat is successfully Installed.\n" ${Color_Off}
-
-	fi
 
 
 #########################################
@@ -183,74 +87,10 @@ function DependenceYay(){
 	echo -e ${BGreen}"[*] Noto-fonts is successfully Installed.\n" ${Color_Off}
 
 
-	########## Nerd font ##########
-
-	## Fira Code Nerd Font
-
-	echo -e ${BBlue}"\n[*] Installing Fira-Code-Nerd-Font ... \n" ${Color_Off}
-
-	$YAYINSTALL nerd-fonts-fira-code
-		
-	SETTIMEOUT "" 1s
-	echo -e ${BGreen}"[*] Fira-Code-Nerd-Font is successfully Installed.\n" ${Color_Off}
-
-
-	## Roboto Mono Nerd Font
-
-	echo -e ${BBlue}"\n[*] Installing Roboto-Mono-Nerd-Font ... \n" ${Color_Off}
-
-	$YAYINSTALL nerd-fonts-roboto-mono
-
-	SETTIMEOUT "" 1s
-	echo -e ${BGreen}"[*] Roboto-Mono-Nerd-Font is successfully Installed.\n" ${Color_Off}
-
-	########## material fonts ##########
-
-	echo -e ${BBlue}"\n[*] Installing Material-design-icons ... \n" ${Color_Off}
-
-	$YAYINSTALL ttf-material-design-icons-git
-
-	SETTIMEOUT "" 1s
-	echo -e ${BGreen}"[*] Material-design-icons is successfully Installed.\n" ${Color_Off}
-
-
-	########## unifont ##########
-
-	echo -e ${BBlue}"\n[*] Installing Unifont ... \n" ${Color_Off}
-
-	$YAYINSTALL ttf-unifont 
-
-	SETTIMEOUT "" 1s
-	echo -e ${BGreen}"[*] Unifont is successfully Installed.\n" ${Color_Off}
-
-
-########## Other dependence ##########
-
-##### imagemagickis for betterblockscreen
-
-	echo -e ${BBlue}"\n[*] Installing Magick ... \n" ${Color_Off}
-
-	if ! [ $(which magick) ]; then 
-		$RECOMMEND_INSTALL magick
-
-	else
-		SETTIMEOUT "" 1s
-		echo -e ${BGreen}"[*] Magick is successfully Installed.\n" ${Color_Off}
-
-	fi
-
-##### w3m for ranger preview image
-
-	echo -e ${BBlue}"\n[*] Installing W3m ... \n" ${Color_Off}
-
-	if ! [ $(which w3m) ]; then 
-		$RECOMMEND_INSTALL w3m
-
-	else
-		SETTIMEOUT "" 1s
-		echo -e ${BGreen}"[*] W3m is successfully Installed.\n" ${Color_Off}
-
-	fi
+  ## Time new roman
+	echo -e ${BBlue}"\n[*] Installing Time new Roman ... \n" ${Color_Off}
+  $YAYINSTALL ttf-freefont ttf-ms-fonts ttf-linux-libertine ttf-dejavu ttf-inconsolata ttf-ubuntu-font-family
+	echo -e ${BGreen}"[*] Time new Roman is successfully Installed.\n" ${Color_Off}
 
 
 ############### Themes ###############

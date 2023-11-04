@@ -2,20 +2,21 @@ add_newline = false
 command_timeout = 1000
 
 
+
 format = """
 [┌─────────](bold green)$username$hostname
-[│](bold green)$directory$git_branch$git_status
+[│](bold green)$directory$git_branch$git_status$nodejs$python$rlang$lua$golang$ruby
 [└─>](bold green)$character"""
 
 [username]
-style_user = "yellow bold"
-style_root = "red bold"
-format = "[┤](bold green)[$user]($style)[│](bold green)"
+style_user = "bold cyan"
+style_root = "bold fg:204"
+format = "[┤](bold fg:213)[$user]($style)[│](bold fg:213)"
 show_always = true
 
 [hostname]
 ssh_only = false
-format =  "[$hostname](bold blue) "
+format =  "[$hostname](bold yellow) "
 
 [directory]
 truncation_length = 8
@@ -40,3 +41,32 @@ deleted = '[\($count\)](red)'
 success_symbol = "[√](bold green)"
 error_symbol = "[](bold red)"
 vicmd_symbol = "[](bold green)"
+
+
+[nodejs]
+format = "via [󰎙 $version]($style) "
+style = "bold green"
+
+[python]
+format = "via [ $version]($style) "
+style = "bold yellow"
+
+[rlang]
+format = "via [ $version]($style) "
+style = "bold blue"
+
+[lua]
+format = "via [ $version]($style) "
+style = "bold purple"
+
+[golang]
+format = "via [ $version]($style) "
+style = "bold cyan"
+
+[ruby]
+format = "via [ $version]($style) "
+style = "bold red"
+
+
+
+

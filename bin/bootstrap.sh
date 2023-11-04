@@ -58,21 +58,6 @@ function msg() {
 
 
 
-function MoveXProfile(){
-
-	LISTX11FILE=$(ls -A $HOME/.dotfiles/.config/X11)
-	for name in $LISTX11FILE
-	do
-		echo -e ${BBlue}"[*] Installing $name configs..." ${Color_Off}
-
-		cp -a $HOME/.dotfiles/.config/X11/$name $HOME
-		if [ -f $HOME/$name ];then
-		SETTIMEOUT "" 1s
-		echo  -e ${BGreen}"[*] Move $HOME/.dotfiles/.config/X11/$name to $HOME success" ${Color_Off}
-		fi
-	done
-
-}
 
 
 function ContainerPacket(){
@@ -85,8 +70,6 @@ echo -e ${BBlue}"
 ===============================
 " ${Color_Off}
 
-	# X11 config
-	MoveXProfile
 
 	for name in $LISTDIRCONFIG
 	do
@@ -124,21 +107,44 @@ else
 fi
 
 
+echo -e ${BBlue}"
+====================================
+          Enable Fonts ...
+====================================
+" ${Color_Off}
+
+if ! [ -d  $HOME/.local/share/fonts/FiraCode ] &&  ! [ -d $HOME/.local/share/fonts/FiraMono] ; then
+		cp -a $HOME/.dotfiles/fonts/FiraCode $HOME/.local/share/fonts/
+		cp -a $HOME/.dotfiles/fonts/FiraMono $HOME/.local/share/fonts/
+    if  [ -d  $HOME/.local/share/fonts/FiraCode ] &&   [ -d $HOME/.local/share/fonts/FiraMono] ; then
+		  SETTIMEOUT "" 1s
+		  echo -e ${BGreen}"[*] Enable fonst is success.\n" ${Color_Off}
+    fi
+fi
+
 
 echo -e ${BBlue}"
 ====================================
-          Enable Rofi ...
+          Enable sddm...
 ====================================
-
 " ${Color_Off}
 
-if [ -d $HOME/.config/rofi/.github  ];then
-	bash $HOME/.config/rofi/.github/setup.sh
+	sudo systemctl enable sddm
 
-	SETTIMEOUT "" 1s
-	echo -e ${BGreen}"[*] Enable Rofi is success.\n" ${Color_Off}
+  sudo rm -rf /etc/sddm.conf.d/sddm.conf
+  sudo cp $HOME/.dotfiles/.sddm-config/sddm.config /etc/sddm.conf.d/sddm.conf
 
+  sudo rm -rf /usr/share/sddm/themes/Sugar-Candy
+  sudo cp -a $HOME/.dotfiles/.sddm-config/Sugar-Candy /usr/share/sddm/themes/
+
+  yay -S --noconfirm sddm-sugar-candy-git
+
+
+if  [ -f /etc/sddm.conf.d/sddm.conf ] &&  [ -d /usr/share/sddm/themes/Sugar-Candy] ; then
+		  SETTIMEOUT "" 1s
+		  echo -e ${BGreen}"[*] Enable sddm is success.\n" ${Color_Off}
 fi
+
 
 
 echo -e ${BBlue}"
@@ -147,10 +153,9 @@ echo -e ${BBlue}"
 ====================================
 " ${Color_Off}
 
-
 if ! [ -f  $HOME/.config/systemd/user/default.target.wants/pulseaudio.service ] &&  ! [ -f $HOME/.config/systemd/user/sockets.target.wants/pulseaudio.socket ] ; then
 
-	systemctl --user enable pulseaudio
+	sudo systemctl enable pulseaudio
 
 	if [ -f  $HOME/.config/systemd/user/default.target.wants/pulseaudio.service ] && [ -f $HOME/.config/systemd/user/sockets.target.wants/pulseaudio.socket ]; then
 		SETTIMEOUT "" 1s
@@ -160,105 +165,7 @@ if ! [ -f  $HOME/.config/systemd/user/default.target.wants/pulseaudio.service ] 
 fi
 
 
-echo -e ${BBlue}"
-====================================
-  System enable betterlockscreen...
-====================================
-" ${Color_Off}
-
-if ! [ -f /etc/systemd/system/sleep.target.wants/betterlockscreen@$USER.service ] && ! [ -f /etc/systemd/system/suspend.target.wants/betterlockscreen@$USER.service ]; then
-
-
-sudo cp -a $HOME/.dotfiles/.config/betterlockscreen/betterlockscreen@$USER.service /etc/systemd/system/suspend.target.wants/
-
-sudo cp -a $HOME/.dotfiles/.config/betterlockscreen/betterlockscreen@$USER.service /etc/systemd/system/sleep.target.wants/
-
-	if  [ -f /etc/systemd/system/sleep.target.wants/betterlockscreen@$USER.service ] && [ -f /etc/systemd/system/suspend.target.wants/betterlockscreen@$USER.service ]; then
-
-		SETTIMEOUT "" 1s
-		echo -e ${BGreen}"[*] Enable Betterlockscreen is success .\n" ${Color_Off}
-
-	fi
-fi
-
-
-
-echo -e ${BBlue}"
-====================================
-       System enable lightdm...
-====================================
-" ${Color_Off}
-
-if ! [ -f /etc/systemd/system/display-manager.service ]; then
-
-sudo systemctl enable lightdm.service
-
-	if [ -d /etc/lightdm ]; then
-
-		sudo cp -a $HOME/.dotfiles/.config/lightdm-aether-config/* /etc/lightdm
-
-	fi
-
-	if [ -f /etc/systemd/system/display-manager.service ]; then
-	
-		SETTIMEOUT "" 1s
-		echo -e ${BGreen}"[*] Enable Lightdm is success .\n" ${Color_Off}
-
-	fi
-fi
-
-
-
-echo -e ${BBlue}"
-====================================
-       Set Avatar Account ...
-====================================
-" ${Color_Off}
-
-
-if ! [ -f /var/lib/AccountsService/icons/default-user.png ]; then
-
-
-	# echo "Move default-user.png.\n"
-	sudo cp -a $HOME/.dotfiles/image/logo/default-user.png /var/lib/AccountsService/icons/
-
-	if ! [ "$(sudo grep -rnw /var/lib/AccountsService/users/$(whoami) -e "Icon=/var/lib/AccountsService/icons/default-user.png")" ]; then
-
-	# echo "Set default-user.png => Logo.\n'"
-		sudo sh -c "echo "Icon=/var/lib/AccountsService/icons/default-user.png" >> /var/lib/AccountsService/users/$(whoami)"
-
-	fi
-
-	if [ -f /var/lib/AccountsService/icons/default-user.png ]; then
-
-		SETTIMEOUT "" 1s
-		echo -e ${BGreen}"[*] Avatar is success .\n" ${Color_Off}
-
-	fi
-
-fi
-
 }
-
-function FristRunAfterInstall(){
-
-	echo -e ${BBlue}"[*] Add fonts for rofi.\n" ${Color_Off}
-	bash $HOME/.config/rofi/.github/setup.sh
-	SETTIMEOUT "" 1s
-	echo -e ${BGreen}"[*] Fonts is success.\n" ${Color_Off}
-
-	echo -e ${BBlue}"[*] Set background.\n" ${Color_Off}
-	feh --bg-fill $HOME/.dotfiles/image/1366x786/340105.jpg 
-	SETTIMEOUT "" 1s
-	echo -e ${BGreen}"[*] Set background is success.\n" ${Color_Off}
-
-	echo -e ${BBlue}"[*] Set background betterlockscreen.\n" ${Color_Off}
-	betterlockscreen -u $HOME/.dotfiles/image/1366x786/340105.jpg dimblur
-	SETTIMEOUT "" 1s
-	echo -e ${BGreen}"[*] Set background is success.\n" ${Color_Off}
-
-}
-
 
 
 function MoveNewConfig(){
@@ -379,12 +286,12 @@ echo -e ${BYellow}"
 $(cat <<'EOF'
 
 	  
-██╗██╗██╗  ░██╗░░░░░░░██╗░█████╗░██████╗░███╗░░██╗██╗███╗░░██╗░██████╗░  ██╗██╗██╗
-██║██║██║  ░██║░░██╗░░██║██╔══██╗██╔══██╗████╗░██║██║████╗░██║██╔════╝░  ██║██║██║
-██║██║██║  ░╚██╗████╗██╔╝███████║██████╔╝██╔██╗██║██║██╔██╗██║██║░░██╗░  ██║██║██║
-╚═╝╚═╝╚═╝  ░░████╔═████║░██╔══██║██╔══██╗██║╚████║██║██║╚████║██║░░╚██╗  ╚═╝╚═╝╚═╝
-██╗██╗██╗  ░░╚██╔╝░╚██╔╝░██║░░██║██║░░██║██║░╚███║██║██║░╚███║╚██████╔╝  ██╗██╗██╗
-╚═╝╚═╝╚═╝  ░░░╚═╝░░░╚═╝░░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝╚═╝╚═╝░░╚══╝░╚═════╝░  ╚═╝╚═╝╚═╝
+  _ _ _  __        __               _               _ _ _ 
+ | | | | \ \      / /_ _ _ __ _ __ (_)_ __   __ _  | | | |
+ | | | |  \ \ /\ / / _` | '__| '_ \| | '_ \ / _` | | | | |
+ |_|_|_|   \ V  V / (_| | |  | | | | | | | | (_| | |_|_|_|
+ (_|_|_)    \_/\_/ \__,_|_|  |_| |_|_|_| |_|\__, | (_|_|_)
+                                            |___/         
 
 EOF
 
@@ -399,13 +306,13 @@ function print_enjoy(){
 	echo -e ${Green}"
 	$(cat <<'EOF'
 	
-			███████╗███╗░░██╗░░░░░██╗░█████╗░██╗░░░██╗██╗
-			██╔════╝████╗░██║░░░░░██║██╔══██╗╚██╗░██╔╝██║
-			█████╗░░██╔██╗██║░░░░░██║██║░░██║░╚████╔╝░██║
-			██╔══╝░░██║╚████║██╗░░██║██║░░██║░░╚██╔╝░░╚═╝
-			███████╗██║░╚███║╚█████╔╝╚█████╔╝░░░██║░░░██╗
-			╚══════╝╚═╝░░╚══╝░╚════╝░░╚════╝░░░░╚═╝░░░╚═╝
+  _____ _   _     _  _____   __
+ | ____| \ | |   | |/ _ \ \ / /
+ |  _| |  \| |_  | | | | \ V / 
+ | |___| |\  | |_| | |_| || |  
+ |_____|_| \_|\___/ \___/ |_|  
 
+                               
 # author: Dominic-github
 # github: https://github.com/Dominic-github
 

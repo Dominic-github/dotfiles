@@ -1,31 +1,21 @@
 #!/usr/bin/env bash
 
-## Author : Aditya Shakya (adi1090x)
-## Github : @adi1090x
-#
-## Rofi   : Power Menu
-#
-## Available Styles
-#
-## style-1   style-2   style-3   style-4   style-5
-## style-6   style-7   style-8   style-9   style-10
-
 # Current Theme
 dir="$HOME/.config/rofi/powermenu/type-2"
-theme='style-1'
+theme='style-5'
 
 # CMDs
 uptime="`uptime -p | sed -e 's/up //g'`"
 host=`hostname`
 
 # Options
-shutdown=''
-reboot=''
-lock=''
-suspend=''
-logout=''
-yes=''
-no=''
+shutdown='⏻'
+reboot=''
+lock='󰌾'
+suspend='󰒲'
+logout='󰍃'
+yes=''
+no=''
 
 # Rofi CMD
 rofi_cmd() {
@@ -79,6 +69,10 @@ run_cmd() {
 				i3-msg exit
 			elif [[ "$DESKTOP_SESSION" == 'plasma' ]]; then
 				qdbus org.kde.ksmserver /KSMServer logout 0 0 0
+			elif [[ "$DESKTOP_SESSION" == "xfce" ]]; then
+				killall xfce4-session
+			elif [[ "$DESKTOP_SESSION" == "hyprland" ]]; then
+				killall Hyprland
 			fi
 		fi
 	else
@@ -96,11 +90,7 @@ case ${chosen} in
 		run_cmd --reboot
         ;;
     $lock)
-		if [[ -x '/usr/bin/betterlockscreen' ]]; then
-			betterlockscreen -l dimblur
-		elif [[ -x '/usr/bin/i3lock' ]]; then
-			i3lock
-		fi
+		swaylock
         ;;
     $suspend)
 		run_cmd --suspend

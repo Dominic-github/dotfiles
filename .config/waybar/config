@@ -1,0 +1,173 @@
+{
+    "layer": "top",
+    "position": "top",
+    "spacing": 0,
+    "height": 34,
+    "modules-left": [
+        "custom/logo",
+        "hyprland/workspaces",
+        "custom/weather",
+    ],
+    "modules-center": [
+        "clock",
+    ],
+    "modules-right": [
+        "memory",
+        "temperature",
+        "network",
+        "pulseaudio",
+        "pulseaudio#microphone",
+        "battery",
+        "tray",
+        "custom/power"
+    ],
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "on-click-right": "fullscreen",
+        "icon-theme": "WhiteSur",
+        "icon-size": 25,
+        "tooltip-format": "{title}"
+    },
+    "hyprland/workspaces": {
+        "on-click": "activate",
+        "format": "{icon}",
+        "format-icons": {
+            "default": "",
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "10",
+        },
+        "persistent_workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": []
+        }
+    },
+    "memory": {
+        "interval": 5,
+        "format": "󰍛 {}%",
+        "max-length": 10
+    },
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    },
+    "clock": {
+        "tooltip-format": "<tt>{calendar}</tt>",
+
+        "format-alt": "  {:%a, %d %b %Y}",
+        "format": "  {:%I:%M %p }"
+    },
+
+    "network": {
+        "format-wifi" : "{icon} {essid}",
+        "format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"],
+        "format-ethernet": "󰀂",
+	      "format-alt" : "󱛇",
+        "format-disconnected" : "󰖪",
+	      "tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+        "tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+	      "tooltip-format-disconnected": "Disconnected",
+	      "on-click": "~/.config/rofi/wifi/wifi.sh &",
+        "on-click-right": "~/.config/rofi/wifi/wifinew.sh &",
+	      "interval": 5,
+	      "nospacing": 1,
+    },
+
+
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "󰂰",
+        "nospacing": 1,
+        "tooltip-format": "Volume : {volume}%",
+        "format-muted": "󰝟",
+        "format-icons": {
+            "headphone": "",
+            "default": ["󰖀","󰕾",""]
+        },
+        "on-click": "pamixer -t",
+        "scroll-step": 1
+    },
+
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": " Muted",
+        "on-click": "pamixer --default-source -t",
+        "on-scroll-up": "pamixer --default-source -i 5",
+        "on-scroll-down": "pamixer --default-source -d 5",
+        "scroll-step": 5
+    },
+    
+    "temperature": {
+        "thermal-zone": 1,
+        "format": "{temperatureF}°C ",
+        "critical-threshold": 80,
+        "format-critical": "{temperatureC}°C "
+    },
+    "custom/logo": {
+        "format": "  ",
+        "tooltip": false,
+        "on-click": "~/.config/rofi/launchers/misc/launcher.sh &"
+    },
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-icons": {
+            "charging": [
+                "󰢜",
+                "󰂆",
+                "󰂇",
+                "󰂈",
+                "󰢝",
+                "󰂉",
+                "󰢞",
+                "󰂊",
+                "󰂋",
+                "󰂅"
+            ],
+            "default": [
+                "󰁺",
+                "󰁻",
+                "󰁼",
+                "󰁽",
+                "󰁾",
+                "󰁿",
+                "󰂀",
+                "󰂁",
+                "󰂂",
+                "󰁹"
+            ]
+        },
+        "format-full": "Charged ",
+        "interval": 5,
+        "states": {
+            "warning": 20,
+            "critical": 10
+        },
+        "tooltip": false
+    },
+    
+    "custom/power": {
+        "format": "󰤆",
+        "tooltip": false,
+        "on-click": "~/.config/rofi/powermenu/type-2/powermenu.sh &"
+    },
+    "custom/weather":{
+        "tooltip": true,
+        "format": {},
+        "interval": 30,
+        "exec": "~/.config/waybar/scripts/waybar-wttr.py",
+        "return-type": "json"
+    }
+}

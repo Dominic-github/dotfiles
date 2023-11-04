@@ -134,6 +134,7 @@ Check if internet connectivity is available:
 ```bash
 ping -c 3 archlinux.org
 ```
+
 > #### 📝 Select the mirrors
 
 Make a list of mirrors sorted by their speed then remove those from the list that are out of sync according to their [status](https://www.archlinux.org/mirrors/status/).
@@ -180,7 +181,6 @@ Check the service status:
 timedatectl status
 ```
 
-
 > #### 📝 Partition the disks
 
 Identify disks:
@@ -201,11 +201,13 @@ Create boot partition and root partition:
 - Hit `[ Write ]` then type `yes` to save, then hit `[ Quit ]`
 
 # 
-- **sda1** || 600Mb:  EFI System                            | 
-- **sda2** || 4GB : Linux swap  (= Ram / 2)
-- **sda3** || X GB : Linux filesystem ( 30GB < X < 60GB)
+
+- **sda1** || 600Mb: EFI System |
+- **sda2** || 4GB : Linux swap (= Ram / 2)
+- **sda3** || X GB : Linux filesystem ( 30GB \< X \< 60GB)
 - **sda4** || else : Linux filesystem
-#
+
+# 
 
 > #### 📝 Format the partitions
 
@@ -235,7 +237,6 @@ mkswap /dev/sda2
 swapon /dev/sda2
 ```
 
-
 > #### 📝 Mount the file systems
 
 Mount root partition first:
@@ -245,9 +246,11 @@ mount /dev/sda3 /mnt
 ```
 
 Home folder
+
 ```bash
 mkdir /mnt/home
 ```
+
 ```bash
 mount /dev/sda4 /mnt/home
 ```
@@ -261,9 +264,6 @@ mkdir /mnt/boot
 ```bash
 mount /dev/sda1 /mnt/boot
 ```
-
-
-
 
 > #### 📝 Install the base and base-devel packages
 
@@ -303,10 +303,6 @@ Generate `/etc/adjtime`:
 hwclock --systohc
 ```
 
-
-
-
-
 > #### 📝 Configure locale
 
 Uncomment `en_US.UTF-8 UTF-8` in `/etc/locale.gen`, then generate it:
@@ -324,6 +320,7 @@ echo 'LANG=en_US.UTF-8' > /etc/locale.conf
 > #### 📝 Change host name
 
 Create hostname file at `/etc/hostname` contain the host name, for example:
+
 - arch-pc is host name
 
 ```bash
@@ -349,7 +346,6 @@ passwd
 ```
 
 Enter your password then confirm it.
-
 
 > #### 📝 Add new user
 
@@ -430,8 +426,6 @@ options root=/dev/sda3
 ```bash
 systemctl enable NetworkManager
 ```
-
-
 
 > #### 📝 Reboot
 

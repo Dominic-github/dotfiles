@@ -87,13 +87,16 @@ function Dependence(){
 echo -e ${BPurple}"
 	$(cat <<'EOF'
 
-
-		█ █▄░█ █▀ ▀█▀ ▄▀█ █░░ █░░
-		█ █░▀█ ▄█ ░█░ █▀█ █▄▄ █▄▄
-
-	█▀▄ █▀▀ █▀█ █▀▀ █▄░█ █▀▄ █▀▀ █▄░█ █▀▀ █▀▀
-	█▄▀ ██▄ █▀▀ ██▄ █░▀█ █▄▀ ██▄ █░▀█ █▄▄ ██▄
-
+  ___           _        _ _                            
+ |_ _|_ __  ___| |_ __ _| | |                           
+  | || '_ \/ __| __/ _` | | |                           
+  | || | | \__ \ || (_| | | |                           
+ |___|_| |_|___/\__\__,_|_|_|     _                     
+ |  _ \  ___ _ __   ___ _ __   __| | ___ _ __   ___ ___ 
+ | | | |/ _ \ '_ \ / _ \ '_ \ / _` |/ _ \ '_ \ / __/ _ \
+ | |_| |  __/ |_) |  __/ | | | (_| |  __/ | | | (_|  __/
+ |____/ \___| .__/ \___|_| |_|\__,_|\___|_| |_|\___\___|
+            |_|                                         
 
 # author: Dominic-github
 # github: https://github.com/Dominic-github
@@ -106,17 +109,45 @@ EOF
 	
 # Dependence
 
-	########## I3 - desktop manager ##########
+	########## hyprland - desktop manager ##########
 
-	echo -e ${BBlue}"\n[*] Installing I3 ... \n" ${Color_Off}
-	if ! [ $(which i3) ] ; then 
-		$RECOMMEND_INSTALL i3-gaps
+	echo -e ${BBlue}"\n[*] Installing hyprland ... \n" ${Color_Off}
+  if ! [ $(which Hyprland) ] ; then 
+		$RECOMMEND_INSTALL 
 	else
 		SETTIMEOUT "" 1s
-		echo -e ${BGreen}"[*] I3 is successfully Installed.\n" ${Color_Off}
+		echo -e ${BGreen}"[*] Hyprland is successfully Installed.\n" ${Color_Off}
 	fi
 
-	
+	########## waybar ##########
+	echo -e ${BBlue}"\n[*] Installing waybar ... \n" ${Color_Off}
+  if ! [ $(which waybar) ] ; then 
+    $RECOMMEND_INSTALL waybar
+	else
+		SETTIMEOUT "" 1s
+		echo -e ${BGreen}"[*] Waybar is successfully Installed.\n" ${Color_Off}
+
+	fi
+
+	########## swaylock - lock screen ##########
+	echo -e ${BBlue}"\n[*] Installing swaylock ... \n" ${Color_Off}
+  if ! [ $(which swaylock) ] ; then 
+    $RECOMMEND_INSTALL swaylock
+	else
+		SETTIMEOUT "" 1s
+		echo -e ${BGreen}"[*] Swaylock is successfully Installed.\n" ${Color_Off}
+
+	fi
+
+	########## sddm - desktop manager ##########
+	echo -e ${BBlue}"\n[*] Installing sddm ... \n" ${Color_Off}
+  if ! [ $(which sddm) ] ; then 
+    $RECOMMEND_INSTALL sddm
+	else
+		SETTIMEOUT "" 1s
+		echo -e ${BGreen}"[*] Sddm is successfully Installed.\n" ${Color_Off}
+	fi
+
 
 	########## fish - Shell ##########
 	echo -e ${BBlue}"\n[*] Installing Fish ... \n" ${Color_Off}
@@ -149,17 +180,6 @@ EOF
 		echo -e ${BGreen}"[*] Kitty is successfully Installed.\n" ${Color_Off}
 	fi
 
-	########## Picom - compositor for X ##########
-	echo -e ${BBlue}"\n[*] Installing Picom ... \n" ${Color_Off}
-
-	if ! [ $(which picom) ] ; then 
-		$RECOMMEND_INSTALL picom
-	else
-		SETTIMEOUT "" 1s
-		echo -e ${BGreen}"[*] Picom is successfully Installed.\n" ${Color_Off}
-
-	fi
-	
 
 	########## StarShip - Prompt ##########
 
@@ -203,17 +223,6 @@ EOF
 	fi
 
 
-		########## Rhythmbox - Audio players ##########
-	echo -e ${BBlue}"\n[*] Installing Rhythmbox ... \n" ${Color_Off}
-
-	if ! [ $(which rhythmbox) ] ; then 
-		$RECOMMEND_INSTALL rhythmbox 
-	else
-		SETTIMEOUT "" 1s
-		echo -e ${BGreen}"[*] Rhythmbox is successfully Installed.\n" ${Color_Off}
-
-	fi
-
 		########## Arandr - Monitors GUI ##########
 	echo -e ${BBlue}"\n[*] Installing Arandr ... \n" ${Color_Off}
 	if ! [ $(which arandr) ] ; then 
@@ -249,30 +258,6 @@ EOF
 	fi
 
 
-	########## Print screenshot ##########
-
-	#### Xclip
-	echo -e ${BBlue}"\n[*] Installing Xclip ... \n" ${Color_Off}
-
-	if ! [ $(which xclip) ] ; then 
-		$RECOMMEND_INSTALL xclip
-	else
-		SETTIMEOUT "" 1s
-		echo -e ${BGreen}"[*] Xclip is successfully Installed.\n" ${Color_Off}
-
-	fi
-
-	#### Maim
-	
-	echo -e ${BBlue}"\n[*] Installing Maim ... \n" ${Color_Off}
-	if ! [ $(which maim) ] ; then 
-		$RECOMMEND_INSTALL maim
-	else
-		SETTIMEOUT "" 1s
-		echo -e ${BGreen}"[*] Maim is successfully Installed.\n" ${Color_Off}
-
-	fi
-
 	########## Ranger - file manager on terminal ##########
 	echo -e ${BBlue}"\n[*] Installing Ranger ... \n" ${Color_Off}
 
@@ -294,29 +279,6 @@ EOF
 
 	fi
 
-	########## Nitrogen - GUI for setting wallpapers ##########
-	echo -e ${BBlue}"\n[*] Installing Nitrogen ... \n" ${Color_Off}
-
-	if ! [ $(which nitrogen) ] ; then 
-		$RECOMMEND_INSTALL nitrogen
-	else
-		SETTIMEOUT "" 1s
-		echo -e ${BGreen}"[*] Nitrogen is successfully Installed.\n" ${Color_Off}
-
-	fi
-
-
-	########## Sxiv - Image viewer ##########
-	echo -e ${BBlue}"\n[*] Installing Sxiv ... \n" ${Color_Off}
-
-	if ! [ $(which sxiv) ] ; then 
-		$RECOMMEND_INSTALL sxiv
-	else
-		SETTIMEOUT "" 1s
-		echo -e ${BGreen}"[*] Sxiv is successfully Installed.\n" ${Color_Off}
-
-	fi
-
 	
 	########## Polybar - Status bar ##########
 	echo -e ${BBlue}"\n[*] Installing Polybar ... \n" ${Color_Off}
@@ -328,6 +290,7 @@ EOF
 		echo -e ${BGreen}"[*] Polybar is successfully Installed.\n" ${Color_Off}
 
 	fi
+
 
 	########## Vlc - Musics player ##########
 	echo -e ${BBlue}"\n[*] Installing Vlc ... \n" ${Color_Off}
@@ -387,13 +350,47 @@ EOF
 
 	fi
 
-	########## ibus - keyboard ##########
-	echo -e ${BBlue}"\n[*] Installing Ibus ... \n" ${Color_Off}
-	if ! [ $(which ibus) ] ; then 
-		$RECOMMEND_INSTALL ibus
+	########## fcitx5 - keyboard ##########
+	echo -e ${BBlue}"\n[*] Installing fcitx5-unikey ... \n" ${Color_Off}
+	if ! [ $(which fcitx5) ] ; then 
+		$RECOMMEND_INSTALL fcitx5 fcitx5-qt fcitx5-gtk fcitx5-unikey kcm-fcitx5
 	else
 		SETTIMEOUT "" 1s
-		echo -e ${BGreen}"[*] Ibus is successfully Installed.\n" ${Color_Off}
+		echo -e ${BGreen}"[*] fcitx5-unikey is successfully Installed.\n" ${Color_Off}
+
+	fi
+
+	########## Zathura - PDF view ##########
+	echo -e ${BBlue}"\n[*] Installing Zathura ... \n" ${Color_Off}
+
+  if ! [ $(which zathura) ] ; then 
+    $RECOMMEND_INSTALL zathura
+	else
+		SETTIMEOUT "" 1s
+		echo -e ${BGreen}"[*] Zathura is successfully Installed.\n" ${Color_Off}
+
+	fi
+
+
+	########## Xclip ##########
+	echo -e ${BBlue}"\n[*] Installing Xclip ... \n" ${Color_Off}
+
+	if ! [ $(which xclip) ] ; then 
+		$RECOMMEND_INSTALL xclip
+	else
+		SETTIMEOUT "" 1s
+		echo -e ${BGreen}"[*] Xclip is successfully Installed.\n" ${Color_Off}
+
+	fi
+
+	########## Swayidle ##########
+	echo -e ${BBlue}"\n[*] Installing swayidle... \n" ${Color_Off}
+
+  if ! [ $(which swayidle) ] ; then 
+		$RECOMMEND_INSTALL swayidle
+	else
+		SETTIMEOUT "" 1s
+		echo -e ${BGreen}"[*] Swayidle is successfully Installed.\n" ${Color_Off}
 
 	fi
 
@@ -402,8 +399,13 @@ EOF
 #            NeoVim - text editor            #
 ##############################################
 
-	if confirm "Would you like to Install NEOVIM"; then
-		bash $HOME/.dotfiles/neovim.sh
+	echo -e ${BBlue}"\n[*] Installing neovim ... \n" ${Color_Off}
+	if ! [ $(which nvim) ] ; then 
+		$RECOMMEND_INSTALL neovim
+	else
+		SETTIMEOUT "" 1s
+		echo -e ${BGreen}"[*] fcitx5-unikey is successfully Installed.\n" ${Color_Off}
+
 	fi
 
 }
