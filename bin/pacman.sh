@@ -129,15 +129,6 @@ EOF
 
 	fi
 
-	########## sddm - desktop manager ##########
-	echo -e ${BBlue}"\n[*] Installing sddm ... \n" ${Color_Off}
-  if ! [ $(which sddm) ] ; then 
-    $RECOMMEND_INSTALL sddm
-	else
-		SETTIMEOUT "" 1s
-		echo -e ${BGreen}"[*] Sddm is successfully Installed.\n" ${Color_Off}
-	fi
-
 
 	########## fish - Shell ##########
 	echo -e ${BBlue}"\n[*] Installing Fish ... \n" ${Color_Off}
@@ -177,6 +168,18 @@ EOF
 	SETTIMEOUT "" 1s
 	echo -e ${BGreen}"[*] imagemagick is successfully Installed.\n" ${Color_Off}
 
+	########## Pipewire - screenshare ##########
+	echo -e ${BBlue}"\n[*] Installing pipewire... \n" ${Color_Off}
+	$RECOMMEND_INSTALL pipewire
+	SETTIMEOUT "" 1s
+	echo -e ${BGreen}"[*] pipewire is successfully Installed.\n" ${Color_Off}
+
+
+	########## wireplumber - screenshare ##########
+	echo -e ${BBlue}"\n[*] Installing wireplumber ... \n" ${Color_Off}
+	$RECOMMEND_INSTALL wireplumber 
+	SETTIMEOUT "" 1s
+	echo -e ${BGreen}"[*] Wireplumber  is successfully Installed.\n" ${Color_Off}
 
 
 	########## StarShip - Prompt ##########

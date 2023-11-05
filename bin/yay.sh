@@ -151,6 +151,16 @@ function DependenceYay(){
 	fi
 
 
+	########## sddm - desktop manager ##########
+	echo -e ${BBlue}"\n[*] Installing sddm ... \n" ${Color_Off}
+  if ! [ $(which sddm) ] ; then 
+    $YAYINSTALL sddm-git
+	else
+		SETTIMEOUT "" 1s
+		echo -e ${BGreen}"[*] Sddm is successfully Installed.\n" ${Color_Off}
+	fi
+
+
 	########## Wl-color-picker - Picker color ##########
 
 	echo -e ${BBlue}"\n[*] Installing wl-color-picker ... \n" ${Color_Off}
