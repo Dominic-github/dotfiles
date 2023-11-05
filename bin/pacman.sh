@@ -113,7 +113,7 @@ EOF
 
 	echo -e ${BBlue}"\n[*] Installing hyprland ... \n" ${Color_Off}
   if ! [ $(which Hyprland) ] ; then 
-		$RECOMMEND_INSTALL 
+		$RECOMMEND_INSTALL hyprland
 	else
 		SETTIMEOUT "" 1s
 		echo -e ${BGreen}"[*] Hyprland is successfully Installed.\n" ${Color_Off}
@@ -126,16 +126,6 @@ EOF
 	else
 		SETTIMEOUT "" 1s
 		echo -e ${BGreen}"[*] Waybar is successfully Installed.\n" ${Color_Off}
-
-	fi
-
-	########## swaylock - lock screen ##########
-	echo -e ${BBlue}"\n[*] Installing swaylock ... \n" ${Color_Off}
-  if ! [ $(which swaylock) ] ; then 
-    $RECOMMEND_INSTALL swaylock
-	else
-		SETTIMEOUT "" 1s
-		echo -e ${BGreen}"[*] Swaylock is successfully Installed.\n" ${Color_Off}
 
 	fi
 
@@ -179,6 +169,14 @@ EOF
 		SETTIMEOUT "" 1s
 		echo -e ${BGreen}"[*] Kitty is successfully Installed.\n" ${Color_Off}
 	fi
+
+
+	########## Imagemagick - image on kitty ##########
+	echo -e ${BBlue}"\n[*] Installing imagemagick ... \n" ${Color_Off}
+	$RECOMMEND_INSTALL imagemagick 
+	SETTIMEOUT "" 1s
+	echo -e ${BGreen}"[*] imagemagick is successfully Installed.\n" ${Color_Off}
+
 
 
 	########## StarShip - Prompt ##########
@@ -279,18 +277,16 @@ EOF
 
 	fi
 
-	
-	########## Polybar - Status bar ##########
-	echo -e ${BBlue}"\n[*] Installing Polybar ... \n" ${Color_Off}
 
-	if ! [ $(which polybar) ] ; then 
-		$RECOMMEND_INSTALL polybar
+	########## Swaybg- Image Screen ##########
+	echo -e ${BBlue}"\n[*] Installing swaybg ... \n" ${Color_Off}
+	if ! [ $(which swaybg) ] ; then 
+		$RECOMMEND_INSTALL swaybg
 	else
 		SETTIMEOUT "" 1s
-		echo -e ${BGreen}"[*] Polybar is successfully Installed.\n" ${Color_Off}
-
+		echo -e ${BGreen}"[*] Swaybg is successfully Installed.\n" ${Color_Off}
 	fi
-
+	
 
 	########## Vlc - Musics player ##########
 	echo -e ${BBlue}"\n[*] Installing Vlc ... \n" ${Color_Off}

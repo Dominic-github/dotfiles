@@ -113,9 +113,13 @@ echo -e ${BBlue}"
 ====================================
 " ${Color_Off}
 
+		mkdir ~/.local/share/fonts/
 if ! [ -d  $HOME/.local/share/fonts/FiraCode ] &&  ! [ -d $HOME/.local/share/fonts/FiraMono] ; then
+
 		cp -a $HOME/.dotfiles/fonts/FiraCode $HOME/.local/share/fonts/
 		cp -a $HOME/.dotfiles/fonts/FiraMono $HOME/.local/share/fonts/
+		fc-cache -fv
+
     if  [ -d  $HOME/.local/share/fonts/FiraCode ] &&   [ -d $HOME/.local/share/fonts/FiraMono] ; then
 		  SETTIMEOUT "" 1s
 		  echo -e ${BGreen}"[*] Enable fonst is success.\n" ${Color_Off}
@@ -131,9 +135,11 @@ echo -e ${BBlue}"
 
 	sudo systemctl enable sddm
 
+	sudo mkdir /etc/sddm.conf.d/
   sudo rm -rf /etc/sddm.conf.d/sddm.conf
   sudo cp $HOME/.dotfiles/.sddm-config/sddm.config /etc/sddm.conf.d/sddm.conf
 
+	sudo mkdir /usr/share/sddm/themes/
   sudo rm -rf /usr/share/sddm/themes/Sugar-Candy
   sudo cp -a $HOME/.dotfiles/.sddm-config/Sugar-Candy /usr/share/sddm/themes/
 
@@ -154,9 +160,7 @@ echo -e ${BBlue}"
 " ${Color_Off}
 
 if ! [ -f  $HOME/.config/systemd/user/default.target.wants/pulseaudio.service ] &&  ! [ -f $HOME/.config/systemd/user/sockets.target.wants/pulseaudio.socket ] ; then
-
 	sudo systemctl enable pulseaudio
-
 	if [ -f  $HOME/.config/systemd/user/default.target.wants/pulseaudio.service ] && [ -f $HOME/.config/systemd/user/sockets.target.wants/pulseaudio.socket ]; then
 		SETTIMEOUT "" 1s
 		echo -e ${BGreen}"[*] Enable Pulseaudio is success.\n" ${Color_Off}

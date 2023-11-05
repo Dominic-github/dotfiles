@@ -73,6 +73,25 @@ function DependenceYay(){
 
 
 
+	########## Swaylock - lock screen ##########
+	echo -e ${BBlue}"\n[*] Installing swaylock-effects ... \n" ${Color_Off}
+  if ! [ $(which swaylock) ] ; then 
+    $YAYINSTALL swaylock-effects
+	else
+		SETTIMEOUT "" 1s
+		echo -e ${BGreen}"[*] Swaylock is successfully Installed.\n" ${Color_Off}
+	fi
+
+
+	########## Brave - web##########
+	echo -e ${BBlue}"\n[*] Installing brave ... \n" ${Color_Off}
+  if ! [ $(which brave) ] ; then 
+    $YAYINSTALL brave-git
+	else
+		SETTIMEOUT "" 1s
+		echo -e ${BGreen}"[*] Brave is successfully Installed.\n" ${Color_Off}
+
+	fi
 
 #########################################
 #                Fonts                  #
@@ -120,14 +139,27 @@ function DependenceYay(){
 	fi
 
 
-	echo -e ${BBlue}"\n[*] Installing Qt5ct ... \n" ${Color_Off}
+	echo -e ${BBlue}"\n[*] Installing Qt ... \n" ${Color_Off}
 
 	if ! [ $(which qt5ct) ]; then
-		$RECOMMEND_INSTALL qt5ct	
+		$RECOMMEND_INSTALL qt5ct	qt6ct qt5-wayland qt6-wayland
 
 	else
 		SETTIMEOUT "" 1s
 		echo -e ${BGreen}"[*] Qt5ct is successfully Installed.\n" ${Color_Off}
+
+	fi
+
+
+	########## Wl-color-picker - Picker color ##########
+
+	echo -e ${BBlue}"\n[*] Installing wl-color-picker ... \n" ${Color_Off}
+
+	if ! [ $(which wl-color-picker) ]; then
+		$YAYINSTALL wl-color-picker
+	else
+		SETTIMEOUT "" 1s
+		echo -e ${BGreen}"[*] Wl-color-picker is successfully Installed.\n" ${Color_Off}
 
 	fi
 
@@ -163,12 +195,12 @@ function DependenceYay(){
 
 
 	########## Sweet-cursors-theme - Cursor theme ##########
-	echo -e ${BBlue}"\n[*] Installing Sweet-cursors-theme ... \n" ${Color_Off}
+	echo -e ${BBlue}"\n[*] Installing Sweet-cursor-theme ... \n" ${Color_Off}
 
-	$YAYINSTALL sweet-cursors-theme-git
+	$YAYINSTALL sweet-cursor-theme-git
 
 	SETTIMEOUT "" 1s
-	echo -e ${BGreen}"[*] Sweet-cursors-theme is successfully Installed.\n" ${Color_Off}
+	echo -e ${BGreen}"[*] Sweet-cursor-theme is successfully Installed.\n" ${Color_Off}
 
 
 }
