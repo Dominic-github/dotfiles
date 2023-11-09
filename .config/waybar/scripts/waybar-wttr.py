@@ -99,7 +99,7 @@ data["text"] = (
     + WEATHER_CODES[weather["current_condition"][0]["weatherCode"]]
     + " "
     + extrachar
-    + weather["current_condition"][0]["FeelsLikeC"]
+    + weather["current_condition"][0]["temp_C"]
     + "°C"
 )
 
@@ -126,7 +126,7 @@ for i, day in enumerate(weather["weather"]):
                 continue
         data[
             "tooltip"
-        ] += f"{format_time(hour['time'])} {WEATHER_CODES[hour['weatherCode']]} {format_temp(hour['FeelsLikeC'])} {hour['weatherDesc'][0]['value']}, {format_chances(hour)}\n"
+        ] += f"{format_time(hour['time'])} {WEATHER_CODES[hour['weatherCode']]} {format_temp(hour['temp_C'])} {hour['weatherDesc'][0]['value']}, {format_chances(hour)}\n"
 
 
 print(json.dumps(data))

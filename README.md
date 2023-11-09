@@ -71,14 +71,9 @@
 ###### with bash, zsh, ...
 
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/Dominic-github/dotfiles/main/bin/install.sh)
+    curl -s https://raw.githubusercontent.com/Dominic-github/dotfiles/main/bin/install.sh | bash
 ```
 
-###### with fish
-
-```bash
-bash (curl -s https://raw.githubusercontent.com/Dominic-github/dotfiles/main/bin/install.sh | psub)
-```
 
 </br>
 
@@ -454,6 +449,12 @@ so no problem, this is how you connect to a wireless LAN with this software:
 nmcli device wifi list
 # Connect to your network
 nmcli device wifi connect YOUR_SSID password YOUR_PASSWORD
+```
+
+Or use gui: 
+
+```bash
+nmtui
 ```
 
 Check [this page](https://wiki.archlinux.org/index.php/NetworkManager#nmcli_examples)

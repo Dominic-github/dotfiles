@@ -161,12 +161,18 @@ EOF
 		echo -e ${BGreen}"[*] Kitty is successfully Installed.\n" ${Color_Off}
 	fi
 
-
 	########## Imagemagick - image on kitty ##########
 	echo -e ${BBlue}"\n[*] Installing imagemagick ... \n" ${Color_Off}
 	$RECOMMEND_INSTALL imagemagick 
 	SETTIMEOUT "" 1s
 	echo -e ${BGreen}"[*] imagemagick is successfully Installed.\n" ${Color_Off}
+
+	########## Xdotool - image on kitty ##########
+	echo -e ${BBlue}"\n[*] Installing xdotool ... \n" ${Color_Off}
+  $RECOMMEND_INSTALL xdotool 
+	SETTIMEOUT "" 1s
+	echo -e ${BGreen}"[*] imagemagick is successfully Installed.\n" ${Color_Off}
+
 
 	########## Pipewire - screenshare ##########
 	echo -e ${BBlue}"\n[*] Installing pipewire... \n" ${Color_Off}
@@ -306,7 +312,7 @@ EOF
 	echo -e ${BBlue}"\n[*] Installing Python ... \n" ${Color_Off}
 
 	if ! [ $(which python) ]  || [ $(which python3) ] ; then 
-		$RECOMMEND_INSTALL python3
+		$RECOMMEND_INSTALL python3 python
 	else
 		SETTIMEOUT "" 1s
 		echo -e ${BGreen}"[*] Python is successfully Installed.\n" ${Color_Off}
@@ -394,6 +400,18 @@ EOF
 	fi
 
 
+	########## gnome-tweaks ##########
+	echo -e ${BBlue}"\n[*] Installing gnome-tweaks... \n" ${Color_Off}
+
+  if ! [ $(which gnome-tweaks) ] ; then 
+		$RECOMMEND_INSTALL gnome-tweaks
+	else
+		SETTIMEOUT "" 1s
+		echo -e ${BGreen}"[*] Gnome-tweaks is successfully Installed.\n" ${Color_Off}
+
+	fi
+
+
 ##############################################
 #            NeoVim - text editor            #
 ##############################################
@@ -404,9 +422,7 @@ EOF
 	else
 		SETTIMEOUT "" 1s
 		echo -e ${BGreen}"[*] fcitx5-unikey is successfully Installed.\n" ${Color_Off}
-
 	fi
-
 }
 
 

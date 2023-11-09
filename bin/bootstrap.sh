@@ -143,9 +143,6 @@ echo -e ${BBlue}"
   sudo rm -rf /usr/share/sddm/themes/Sugar-Candy
   sudo cp -a $HOME/.dotfiles/.sddm-config/Sugar-Candy /usr/share/sddm/themes/
 
-  yay -S --noconfirm sddm-sugar-candy-git
-
-
 if  [ -f /etc/sddm.conf.d/sddm.conf ] &&  [ -d /usr/share/sddm/themes/Sugar-Candy] ; then
 		  SETTIMEOUT "" 1s
 		  echo -e ${BGreen}"[*] Enable sddm is success.\n" ${Color_Off}

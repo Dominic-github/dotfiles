@@ -71,7 +71,11 @@ function DependenceYay(){
 
 	fi
 
-
+	########## Dependence sddm  ##########
+	echo -e ${BBlue}"\n[*] Installing Sddm dependence ... \n" ${Color_Off}
+  $YAYINSTALL qt5-graphicaleffects  qt5-quickcontrols2  qt5-svg
+  SETTIMEOUT "" 1s
+  echo -e ${BGreen}"[*] Swaylock is successfully Installed.\n" ${Color_Off}
 
 	########## Swaylock - lock screen ##########
 	echo -e ${BBlue}"\n[*] Installing swaylock-effects ... \n" ${Color_Off}
@@ -117,9 +121,7 @@ function DependenceYay(){
 ########## GTK ################
 
 	echo -e ${BBlue}"\n[*] Installing Gtk ... \n" ${Color_Off}
-
 	$RECOMMEND_INSTALL gtk3 gtk4
-
 	SETTIMEOUT "" 1s
 	echo -e ${BGreen}"[*] Gtk is successfully Installed.\n" ${Color_Off}
 
@@ -131,11 +133,9 @@ function DependenceYay(){
 
 	if ! [ $(which lxappearance) ]; then 
 		$RECOMMEND_INSTALL lxappearance
-
 	else
 		SETTIMEOUT "" 1s
 		echo -e ${BGreen}"[*] Lxappearance is successfully Installed.\n" ${Color_Off}
-
 	fi
 
 

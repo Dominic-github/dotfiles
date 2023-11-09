@@ -9,6 +9,7 @@ map R rotate
 unmap f
 map f toggle_fullscreen
 map [fullscreen] f toggle_fullscreen
+# map d toggle single page
 
 
 set window-title-basename "true"

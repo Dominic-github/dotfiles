@@ -205,7 +205,7 @@ function cloneDotFiles(){
 	SETTIMEOUT "" 1s
 
 	if ! [ -d $HOME/.dotfiles ];then
-		git clone $DOTFILE_REMOTE $HOME/.dotfiles
+		git clone $DOTFILE_REMOTE $HOME/.dotfiles --depth 1
 
 		if [ -d $HOME/.dotfiles ];then
 			SETTIMEOUT "" 1s

@@ -94,7 +94,7 @@ case $select in
     change_theme_kitty "Catppuccin Kitty Frappe"
     change_theme_fish light
     change_theme_zathura frappe
-		update_wallpaper wallpaper.png
+		update_wallpaper frappe.jpg
     reload
 		;;
 	$theme6)
@@ -102,7 +102,7 @@ case $select in
     change_theme_kitty "Catppuccin Kitty Latte"
     change_theme_fish dark
     change_theme_zathura latte
-		update_wallpaper evening-sky.png
+		update_wallpaper latte.png
     reload
 		;;
 	$theme7)
@@ -110,7 +110,7 @@ case $select in
     change_theme_kitty "Catppuccin Kitty Macchiato"
     change_theme_fish light
     change_theme_zathura macchiato
-		update_wallpaper wallhaven.jpg
+		update_wallpaper macchiato.jpg
     reload
 		;;
 	$theme8)
