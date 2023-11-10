@@ -301,6 +301,9 @@ function print_enjoy(){
 # author: Dominic-github
 # github: https://github.com/Dominic-github
 
+
+You need to reboot !!!
+
 EOF
 
 )" ${Color_Off}
